@@ -42,7 +42,7 @@ export function HeroSection() {
             <Link href="/quote" className="btn btn-primary px-8">
               Get Bulk Quote
             </Link>
-            <Link href="/#solutions" className="btn btn-ghost-dark px-8">
+            <Link href="/solutions" className="btn btn-ghost-dark px-8">
               Explore Corporate Solutions
             </Link>
           </div>

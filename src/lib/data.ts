@@ -4,7 +4,7 @@ export const contact = {
 };
 
 export const navLinks = [
-  { href: "/#solutions", label: "Solutions" },
+  { href: "/solutions", label: "Solutions" },
   { href: "/products", label: "Products" },
   { href: "/#studio", label: "Industries" },
   { href: "/#portfolio", label: "Portfolio" },

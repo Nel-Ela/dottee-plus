@@ -47,7 +47,7 @@ function FooterGroup({ title, links }: { title: string; links: string[] }) {
                   : link === "Get Quote"
                     ? "/quote"
                     : title === "Solutions"
-                      ? "/#solutions"
+                      ? "/solutions"
                       : "/#process"
             }
           >
