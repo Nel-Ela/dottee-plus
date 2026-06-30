@@ -1,6 +1,6 @@
 export const contact = {
   email: "hello@dotteeplus.com",
-  whatsapp: "919876543210",
+  whatsapp: "918838320810",
 };
 
 export const navLinks = [

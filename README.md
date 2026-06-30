@@ -57,7 +57,7 @@ The implementation follows the uploaded Dottee Plus handoff:
 
 ## Current Integration Placeholders
 
-- WhatsApp number: `+91 98765 43210`
+- WhatsApp number: `+91 88383 20810`
 - Email: `hello@dotteeplus.com`
 - Quote form is UI-only for this static phase
 - Product/client photography and real client logos should be replaced with verified assets before launch
