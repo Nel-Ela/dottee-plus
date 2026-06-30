@@ -1,0 +1,479 @@
+@import "tailwindcss";
+
+:root {
+  --orange: #ff5c1a;
+  --orange-dark: #cc4200;
+  --orange-tint: #fff0e9;
+  --teal: #0abfb8;
+  --teal-dark: #078a84;
+  --teal-tint: #e6fafa;
+  --purple: #6b3fa0;
+  --purple-light: #9b6fd0;
+  --purple-tint: #f0e8ff;
+  --charcoal: #1a1a24;
+  --charcoal-mid: #2e2e3a;
+  --warm-white: #faf8f5;
+  --off-white: #f2efe9;
+  --gray-700: #4a4a5a;
+  --gray-500: #6b6b7b;
+  --gray-300: #aeaebb;
+  --gray-100: #ebebf0;
+  --gray-50: #f5f4f7;
+  --whatsapp: #25d366;
+  --background: var(--warm-white);
+  --foreground: var(--charcoal);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-syne);
+  --font-mono: var(--font-dm-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+section,
+main,
+div,
+article,
+aside,
+header,
+footer {
+  min-width: 0;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.font-display {
+  font-family: var(--font-syne), system-ui, sans-serif;
+}
+
+.font-mono-brand {
+  font-family: var(--font-dm-mono), monospace;
+}
+
+.container-page {
+  width: calc(100% - 32px);
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+.section-pad {
+  padding: 64px 0;
+}
+
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(255, 92, 26, 0.12) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+}
+
+.hero-impact {
+  min-height: calc(100svh - 68px);
+  padding: 52px 0 24px;
+}
+
+.hero-impact::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(115deg, rgba(255, 92, 26, 0.2), transparent 38%),
+    linear-gradient(180deg, transparent 70%, rgba(10, 191, 184, 0.14));
+  pointer-events: none;
+}
+
+.hero-impact-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-items: center;
+  gap: 32px;
+}
+
+.hero-impact-copy {
+  max-width: 820px;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  max-width: 100%;
+  border-bottom: 2px solid var(--teal);
+  color: var(--teal);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  padding-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: var(--font-syne), system-ui, sans-serif;
+  font-size: clamp(42px, 5.6vw, 66px);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 0.92;
+  margin: 18px 0 0;
+  max-width: 760px;
+}
+
+.hero-title span {
+  color: var(--orange);
+  display: block;
+}
+
+.hero-lede {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: clamp(16px, 1.55vw, 22px);
+  line-height: 1.7;
+  margin: 18px 0 0;
+  max-width: 690px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.hero-impact-visual {
+  min-height: 360px;
+  position: relative;
+}
+
+.merch-stage {
+  aspect-ratio: 1.16;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.35);
+  clip-path: polygon(8% 0, 100% 0, 94% 100%, 0 92%);
+  overflow: hidden;
+  position: absolute;
+  right: -24px;
+  top: 16px;
+  transform: rotate(-2deg);
+  width: min(102%, 680px);
+}
+
+.merch-stage::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(120deg, rgba(26, 26, 36, 0), rgba(26, 26, 36, 0.16));
+}
+
+.stage-sticker {
+  animation: float-card 5s ease-in-out infinite;
+  background: white;
+  border: 1px solid rgba(26, 26, 36, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+  color: var(--charcoal);
+  font-weight: 900;
+  padding: 12px 15px;
+  position: absolute;
+  z-index: 2;
+}
+
+.sticker-logo {
+  left: 0;
+  top: 32px;
+  transform: rotate(-4deg);
+}
+
+.sticker-photo {
+  right: 0;
+  top: 42%;
+  transform: rotate(3deg);
+}
+
+.sticker-kit {
+  bottom: 8px;
+  left: 16%;
+  transform: rotate(2deg);
+}
+
+.stage-mark {
+  bottom: -8px;
+  color: var(--orange);
+  font-family: var(--font-syne), system-ui, sans-serif;
+  font-size: clamp(92px, 12vw, 170px);
+  font-weight: 800;
+  line-height: 0.8;
+  position: absolute;
+  right: 8px;
+  z-index: 2;
+}
+
+.idea-strip {
+  background: var(--orange);
+  color: white;
+  display: flex;
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 12px;
+  font-weight: 500;
+  gap: 30px;
+  letter-spacing: 0.12em;
+  left: -20px;
+  padding: 10px 28px;
+  position: absolute;
+  right: -20px;
+  text-transform: uppercase;
+  top: 26px;
+  transform: rotate(-2.6deg);
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.proof-line {
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.72);
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 11px;
+  gap: 14px 22px;
+  letter-spacing: 0.08em;
+  margin-top: 40px;
+  padding-top: 22px;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.proof-line span:not(:last-child)::after {
+  color: var(--orange);
+  content: "/";
+  margin-left: 22px;
+}
+
+.event-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.event-ticket {
+  align-items: center;
+  background: white;
+  border: 1px solid rgba(26, 26, 36, 0.08);
+  border-left: 8px solid var(--orange);
+  border-radius: 8px;
+  box-shadow: 0 16px 42px rgba(26, 26, 36, 0.08);
+  display: flex;
+  justify-content: space-between;
+  min-height: 76px;
+  padding: 18px 22px;
+}
+
+.event-ticket span {
+  color: var(--teal-dark);
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+.event-ticket strong {
+  font-family: var(--font-syne), system-ui, sans-serif;
+  font-size: clamp(20px, 3vw, 34px);
+  line-height: 1;
+}
+
+.btn {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 14px 22px;
+  font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--orange-dark);
+}
+
+.btn-ghost-dark {
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  color: white;
+}
+
+.btn-whatsapp {
+  background: var(--whatsapp);
+  color: white;
+}
+
+.label {
+  color: var(--orange);
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card {
+  border: 1px solid rgba(26, 26, 36, 0.06);
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(26, 26, 36, 0.06);
+  transition: transform 0.28s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.28s ease;
+}
+
+@media (min-width: 768px) {
+  .section-pad {
+    padding: 88px 0;
+  }
+
+  .hero-actions {
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-pad {
+    padding: 104px 0;
+  }
+
+  .hero-impact {
+    padding-top: 64px;
+  }
+
+  .hero-impact-grid {
+    grid-template-columns: minmax(0, 0.94fr) minmax(430px, 0.72fr);
+  }
+
+  .hero-impact-visual {
+    min-height: 620px;
+  }
+
+  .merch-stage {
+    right: -40px;
+    top: 52px;
+  }
+}
+
+.card:hover {
+  box-shadow: 0 20px 56px rgba(26, 26, 36, 0.13);
+  transform: translateY(-6px);
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-card {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-card {
+  animation: float-card 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-impact {
+    padding-top: 72px;
+  }
+
+  .hero-impact-visual {
+    margin-top: 12px;
+    min-height: 330px;
+  }
+
+  .merch-stage {
+    right: -18px;
+    top: 18px;
+    width: 108%;
+  }
+
+  .stage-sticker {
+    font-size: 12px;
+    padding: 9px 11px;
+  }
+
+  .sticker-photo {
+    top: 48%;
+  }
+
+  .proof-line {
+    margin-top: 20px;
+  }
+}
