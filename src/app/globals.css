@@ -48,7 +48,6 @@ footer {
 
 html {
   overflow-x: hidden;
-  scroll-behavior: smooth;
   scroll-padding-top: 86px;
 }
 
@@ -96,10 +95,6 @@ textarea {
 
 .section-pad {
   padding: 56px 0;
-}
-
-.home-scroll-stage {
-  scroll-behavior: smooth;
 }
 
 .home-panel {
@@ -406,14 +401,8 @@ textarea {
 }
 
 @media (min-width: 1024px) {
-  .home-scroll-stage {
-    scroll-snap-type: y proximity;
-  }
-
   .home-panel {
     min-height: calc(100svh - 86px);
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
   }
 
   .home-panel > .container-page {

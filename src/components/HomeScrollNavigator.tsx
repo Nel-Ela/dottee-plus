@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 const sections = [
-  ["home-hero", "Hero"],
+  ["home-hero", "Home"],
   ["home-solutions", "Solutions"],
   ["home-studio", "Studio"],
   ["home-welcome-kits", "Welcome kits"],
