@@ -293,17 +293,39 @@ export function BrandStudioSection() {
 export function PrintingMethodsSection() {
   return (
     <section className="section-pad bg-[var(--warm-white)]">
-      <div className="container-page">
-          <SectionHeading label="Printing methods" title="The right finish for every fabric, logo, package, and order size." center />
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="container-page grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <div>
+          <SectionHeading
+            label="Printing methods"
+            title="The right finish for every fabric, logo, package, and order size."
+            text="Screen print, DTF, DTG, embroidery, sublimation, and vinyl each solve a different production problem. Dottee Plus helps match the method to the fabric, quantity, and artwork."
+          />
+          <div className="relative mt-7 min-h-80 overflow-hidden rounded-lg border border-[var(--gray-100)] shadow-xl md:min-h-[440px]">
+            <Image
+              src="/images/home-printing-methods-studio.png"
+              alt="Printing methods studio with screen printing, embroidery, DTF, DTG, sublimation, vinyl and material swatches"
+              fill
+              sizes="(min-width: 1024px) 46vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,26,36,0)_44%,rgba(26,26,36,0.72)_100%)]" />
+            <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
+              {["Fabric", "Logo", "Batch size", "Finish"].map((item) => (
+                <span key={item} className="rounded-full bg-white/95 px-3 py-2 text-xs font-black text-[var(--charcoal)]">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
           {printMethods.map(([name, desc]) => (
-            <div key={name} className="card p-6">
-              <div className="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-[var(--orange-tint)] text-lg font-black text-[var(--orange)]">
-                +
-              </div>
+            <Link key={name} href="/quote" className="card border-t-4 border-t-[var(--orange)] p-5 md:p-6">
+              <span className="label text-[var(--teal-dark)]">Method</span>
               <h3 className="font-display text-xl font-bold">{name}</h3>
               <p className="mt-3 text-sm leading-7 text-[var(--gray-500)]">{desc}</p>
-            </div>
+              <span className="mt-5 inline-flex text-sm font-bold text-[var(--orange)]">Discuss method -&gt;</span>
+            </Link>
           ))}
         </div>
       </div>
@@ -348,9 +370,18 @@ export function OrderFlowSection() {
             <Link href="/quote" className="btn btn-primary px-8">
               Start Quote
             </Link>
-            <Link href="/products" className="btn bg-[var(--charcoal)] px-8 text-white">
+            <Link href="/products" className="btn border border-[var(--gray-100)] bg-white px-8 text-[var(--charcoal)] shadow-sm">
               Browse Products
             </Link>
+          </div>
+          <div className="relative mt-8 min-h-72 overflow-hidden rounded-lg border border-[var(--gray-100)] shadow-xl">
+            <Image
+              src="/images/home-order-flow-workbench.png"
+              alt="Corporate merchandise order workflow with products, quote sheet, artwork proof, samples and shipping box"
+              fill
+              sizes="(min-width: 1024px) 32vw, 100vw"
+              className="object-cover"
+            />
           </div>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -410,7 +441,7 @@ export function PortfolioAndCTA() {
 export function EventMerchandiseSection() {
   return (
     <section className="section-pad bg-[var(--warm-white)]">
-      <div className="container-page grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+      <div className="container-page grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-center">
         <div>
           <SectionHeading
             label="Event merchandise"
@@ -421,13 +452,32 @@ export function EventMerchandiseSection() {
             Plan Event Merch
           </Link>
         </div>
-        <div className="event-stack">
-          {["Lanyards", "Badges", "Tote bags", "Caps", "Booth kits", "Event tees"].map((item, index) => (
-            <div key={item} className="event-ticket" style={{ transform: `rotate(${index % 2 === 0 ? -1.4 : 1.4}deg)` }}>
-              <span>0{index + 1}</span>
-              <strong>{item}</strong>
+        <div className="grid gap-4">
+          <div className="relative min-h-[420px] overflow-hidden rounded-lg border border-[var(--gray-100)] shadow-xl">
+            <Image
+              src="/images/home-event-merch-kit.png"
+              alt="Event merchandise kit with lanyards, badges, tote bags, caps, event tees, bottles, stickers and booth giveaways"
+              fill
+              sizes="(min-width: 1024px) 54vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,26,36,0)_48%,rgba(26,26,36,0.76)_100%)]" />
+            <div className="absolute bottom-4 left-4 right-4 grid gap-2 sm:grid-cols-3">
+              {["Attendee kits", "Booth giveaways", "Staff apparel"].map((item) => (
+                <span key={item} className="rounded-full bg-white/95 px-3 py-2 text-center text-xs font-black text-[var(--charcoal)]">
+                  {item}
+                </span>
+              ))}
             </div>
-          ))}
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {["Lanyards", "Badges", "Tote bags", "Caps", "Booth kits", "Event tees"].map((item, index) => (
+              <Link key={item} href="/products#event" className="rounded-lg border border-[var(--gray-100)] bg-white p-4 shadow-sm">
+                <span className="font-mono-brand text-[11px] font-medium text-[var(--teal-dark)]">0{index + 1}</span>
+                <strong className="font-display mt-2 block text-lg leading-tight">{item}</strong>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>
