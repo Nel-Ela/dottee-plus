@@ -19,13 +19,6 @@ const milestones = [
   ["Repeat", "Support reorder needs", "Approved specs make future team, event, and onboarding orders easier to repeat."],
 ];
 
-const team = [
-  ["A", "Arjun Sharma", "Co-Founder & CEO", "Product quality, vendor systems, and operations discipline."],
-  ["P", "Priya Nair", "Co-Founder & Creative Head", "Apparel design, mockups, and brand experience direction."],
-  ["R", "Rohan Gupta", "Head of Operations", "Production planning, dispatch timelines, and quality checks."],
-  ["M", "Meera Iyer", "Client Success", "Brief clarity, quote coordination, and delivery communication."],
-];
-
 export default function AboutPage() {
   return (
     <div>
@@ -105,26 +98,6 @@ export default function AboutPage() {
                   <span className="font-mono-brand text-xs font-medium uppercase tracking-[0.14em] text-[var(--orange)]">{year}</span>
                   <h3 className="font-display mt-2 text-2xl font-bold">{title}</h3>
                   <p className="mt-2 leading-7 text-[var(--gray-500)]">{text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section-pad bg-[var(--off-white)]">
-          <div className="container-page">
-            <SectionHeading label="The people" title="Meet the team." center />
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {team.map(([initial, name, role, bio], index) => (
-                <div key={name} className="card overflow-hidden">
-                  <div className="grid h-48 place-items-center" style={{ background: index === 0 ? "linear-gradient(145deg,var(--orange-tint),#ffd0b5)" : index === 1 ? "linear-gradient(145deg,var(--teal-tint),#a8efec)" : index === 2 ? "linear-gradient(145deg,var(--purple-tint),#c9a8f0)" : "linear-gradient(145deg,var(--charcoal),var(--charcoal-mid))" }}>
-                    <div className="grid h-20 w-20 place-items-center rounded-full bg-[var(--orange)] font-display text-3xl font-extrabold text-white">{initial}</div>
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-display text-lg font-bold">{name}</h3>
-                    <p className="mt-1 text-xs font-bold text-[var(--orange)]">{role}</p>
-                    <p className="mt-3 text-sm leading-6 text-[var(--gray-500)]">{bio}</p>
-                  </div>
                 </div>
               ))}
             </div>
