@@ -136,11 +136,11 @@ export function ProductCatalogue() {
                 </Link>
               </div>
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {group.items.map(([name, spec, price, label], index) => (
+                {group.items.map(([name, spec, price, label, image], index) => (
                   <Link key={name} href="/quote" className="card group overflow-hidden">
                     <div className="relative h-48 overflow-hidden bg-[var(--gray-50)]">
                       <Image
-                        src={group.image}
+                        src={image ?? group.image}
                         alt={`${name} for ${group.title}`}
                         fill
                         sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"

@@ -51,11 +51,11 @@ export const printMethods = [
 ] as const;
 
 export const apparel = [
-  ["Polo Shirts", "Corporate collars, embroidery-ready pique, team-wise color planning", "From Rs. 349/pc", "Corporate Apparel"],
-  ["T-Shirts", "Round neck, dry-fit, event tees, department drops, chest/back/sleeve branding", "From Rs. 199/pc", "Corporate Apparel"],
-  ["Hoodies", "Fleece hoodies with print, patch, or embroidery for startup and winter kits", "From Rs. 799/pc", "Corporate Apparel"],
-  ["Jackets", "Lightweight jackets, softshells, and outerwear for field and leadership teams", "Custom quote", "Corporate Apparel"],
-  ["Uniforms", "Retail, hospital, factory, and office uniform programs with repeat specs", "Custom quote", "Corporate Apparel"],
+  ["Polo Shirts", "Corporate collars, embroidery-ready pique, team-wise color planning", "From Rs. 349/pc", "Corporate Apparel", "/images/product-apparel-polo-shirts.png"],
+  ["T-Shirts", "Round neck, dry-fit, event tees, department drops, chest/back/sleeve branding", "From Rs. 199/pc", "Corporate Apparel", "/images/product-apparel-t-shirts.png"],
+  ["Hoodies", "Fleece hoodies with print, patch, or embroidery for startup and winter kits", "From Rs. 799/pc", "Corporate Apparel", "/images/product-apparel-hoodies.png"],
+  ["Jackets", "Lightweight jackets, softshells, and outerwear for field and leadership teams", "Custom quote", "Corporate Apparel", "/images/product-apparel-jackets.png"],
+  ["Uniforms", "Retail, hospital, factory, and office uniform programs with repeat specs", "Custom quote", "Corporate Apparel", "/images/product-apparel-uniforms.png"],
 ];
 
 export const productGroups = [
@@ -67,13 +67,13 @@ export const productGroups = [
     image: "/images/products-onboarding-catalogue.png",
     imageAlt: "Employee onboarding kit with apparel, bottle, mug, notebook, pen, lanyard and packaging",
     items: [
-      ["Welcome Kits", "Gift-ready joining boxes with apparel, bottle, notebook, pen, and card", "From Rs. 999/kit", "Onboarding"],
-      ["Joining Kits", "Role-wise kit combinations for HR and people teams", "Custom quote", "Onboarding"],
-      ["Laptop Bags", "Branded laptop sleeves, backpacks, and daily carry options", "Custom quote", "Onboarding"],
-      ["Bottles", "Steel bottles, sippers, and tumblers with print or engraving", "From Rs. 299/pc", "Onboarding"],
-      ["Diaries", "Notebooks, planners, and premium journals for desk kits", "From Rs. 149/pc", "Onboarding"],
-      ["Pens", "Branded pens and stationery add-ons for joining boxes", "From Rs. 29/pc", "Onboarding"],
-      ["ID Cards", "ID cards, holders, reels, and lanyard combinations", "Custom quote", "Onboarding"],
+      ["Welcome Kits", "Gift-ready joining boxes with apparel, bottle, notebook, pen, and card", "From Rs. 999/kit", "Onboarding", "/images/product-onboarding-welcome-kits.png"],
+      ["Joining Kits", "Role-wise kit combinations for HR and people teams", "Custom quote", "Onboarding", "/images/product-onboarding-joining-kits.png"],
+      ["Laptop Bags", "Branded laptop sleeves, backpacks, and daily carry options", "Custom quote", "Onboarding", "/images/product-onboarding-laptop-bags.png"],
+      ["Bottles", "Steel bottles, sippers, and tumblers with print or engraving", "From Rs. 299/pc", "Onboarding", "/images/product-onboarding-bottles.png"],
+      ["Diaries", "Notebooks, planners, and premium journals for desk kits", "From Rs. 149/pc", "Onboarding", "/images/product-onboarding-diaries.png"],
+      ["Pens", "Branded pens and stationery add-ons for joining boxes", "From Rs. 29/pc", "Onboarding", "/images/product-onboarding-pens.png"],
+      ["ID Cards", "ID cards, holders, reels, and lanyard combinations", "Custom quote", "Onboarding", "/images/product-onboarding-id-cards.png"],
     ],
   },
   {
@@ -93,11 +93,11 @@ export const productGroups = [
     image: "/images/products-office-catalogue.png",
     imageAlt: "Office essentials with mugs, bottles, notebooks, calendars, desk pads and stationery",
     items: [
-      ["Mugs", "Ceramic, matte, color-handle, and premium mug options", "From Rs. 149/pc", "Office"],
-      ["Bottles", "Steel, copper, sipper, and travel bottle branding", "From Rs. 299/pc", "Office"],
-      ["Mouse Pads", "Desk pads, mouse pads, and workspace branding essentials", "From Rs. 99/pc", "Office"],
-      ["Notebooks", "Custom notebooks, diaries, planners, and executive journals", "From Rs. 149/pc", "Office"],
-      ["Calendars", "Desk calendars, wall calendars, and campaign stationery", "Custom quote", "Office"],
+      ["Mugs", "Ceramic, matte, color-handle, and premium mug options", "From Rs. 149/pc", "Office", "/images/product-office-mugs.png"],
+      ["Bottles", "Steel, copper, sipper, and travel bottle branding", "From Rs. 299/pc", "Office", "/images/product-office-bottles.png"],
+      ["Mouse Pads", "Desk pads, mouse pads, and workspace branding essentials", "From Rs. 99/pc", "Office", "/images/product-office-mouse-pads.png"],
+      ["Notebooks", "Custom notebooks, diaries, planners, and executive journals", "From Rs. 149/pc", "Office", "/images/product-office-notebooks.png"],
+      ["Calendars", "Desk calendars, wall calendars, and campaign stationery", "Custom quote", "Office", "/images/product-office-calendars.png"],
     ],
   },
   {
@@ -108,12 +108,12 @@ export const productGroups = [
     image: "/images/products-event-catalogue.png",
     imageAlt: "Event merchandise with lanyards, badges, tote bags, caps, stickers and booth branding",
     items: [
-      ["Lanyards", "Printed, woven, and badge-ready event lanyards", "From Rs. 39/pc", "Event"],
-      ["Badges", "Conference badges, ID cards, and access credentials", "Custom quote", "Event"],
-      ["Tote Bags", "Cotton, canvas, jute, and non-woven tote bags", "From Rs. 99/pc", "Event"],
-      ["Caps", "Structured caps with embroidery, patches, or vinyl", "From Rs. 149/pc", "Event"],
-      ["Stickers", "Sticker sheets, labels, QR stickers, and kit inserts", "Custom quote", "Event"],
-      ["Booth Branding", "Giveaways, table kits, and branded counter essentials", "Custom quote", "Event"],
+      ["Lanyards", "Printed, woven, and badge-ready event lanyards", "From Rs. 39/pc", "Event", "/images/product-event-lanyards.png"],
+      ["Badges", "Conference badges, ID cards, and access credentials", "Custom quote", "Event", "/images/product-event-badges.png"],
+      ["Tote Bags", "Cotton, canvas, jute, and non-woven tote bags", "From Rs. 99/pc", "Event", "/images/product-event-tote-bags.png"],
+      ["Caps", "Structured caps with embroidery, patches, or vinyl", "From Rs. 149/pc", "Event", "/images/product-event-caps.png"],
+      ["Stickers", "Sticker sheets, labels, QR stickers, and kit inserts", "Custom quote", "Event", "/images/product-event-stickers.png"],
+      ["Booth Branding", "Giveaways, table kits, and branded counter essentials", "Custom quote", "Event", "/images/product-event-booth-branding.png"],
     ],
   },
   {
@@ -124,10 +124,10 @@ export const productGroups = [
     image: "/images/products-gifts-catalogue.png",
     imageAlt: "Premium corporate gift boxes with tech gifts, hampers, packaging and executive accessories",
     items: [
-      ["Executive Gift Sets", "Premium boxes for clients, leaders, and milestone programs", "Custom quote", "Gifts"],
-      ["Tech Gifts", "Laptop sleeves, organizers, wireless accessories, and desk tech", "Custom quote", "Gifts"],
-      ["Festive Hampers", "Curated festival gifting with packaging and dispatch planning", "Custom quote", "Gifts"],
-      ["Customized Boxes", "Rigid boxes, mailer boxes, sleeves, inserts, and labels", "Custom quote", "Gifts"],
+      ["Executive Gift Sets", "Premium boxes for clients, leaders, and milestone programs", "Custom quote", "Gifts", "/images/product-gifts-executive-gift-sets.png"],
+      ["Tech Gifts", "Laptop sleeves, organizers, wireless accessories, and desk tech", "Custom quote", "Gifts", "/images/product-gifts-tech-gifts.png"],
+      ["Festive Hampers", "Curated festival gifting with packaging and dispatch planning", "Custom quote", "Gifts", "/images/product-gifts-festive-hampers.png"],
+      ["Customized Boxes", "Rigid boxes, mailer boxes, sleeves, inserts, and labels", "Custom quote", "Gifts", "/images/product-gifts-customized-boxes.png"],
     ],
   },
   {
@@ -138,12 +138,12 @@ export const productGroups = [
     image: "/images/products-printing-catalogue.png",
     imageAlt: "Printing methods studio with screen printing tools, embroidery, DTF, DTG, sublimation and vinyl samples",
     items: [
-      ["Screen Printing", "Durable bulk printing for bold logos and large batches", "Bulk ready", "Printing"],
-      ["DTF", "Flexible full-color prints for apparel and quick production", "Fast track", "Printing"],
-      ["DTG", "Soft detailed prints for premium apparel programs", "Premium", "Printing"],
-      ["Embroidery", "Raised premium finish for polos, caps, jackets, and gifts", "Premium", "Printing"],
-      ["Sublimation", "All-over artwork for sportswear and event apparel", "Custom quote", "Printing"],
-      ["Vinyl", "Names, numbers, and crisp single-color applications", "Custom quote", "Printing"],
+      ["Screen Printing", "Durable bulk printing for bold logos and large batches", "Bulk ready", "Printing", "/images/product-printing-screen-printing.png"],
+      ["DTF", "Flexible full-color prints for apparel and quick production", "Fast track", "Printing", "/images/product-printing-dtf.png"],
+      ["DTG", "Soft detailed prints for premium apparel programs", "Premium", "Printing", "/images/product-printing-dtg.png"],
+      ["Embroidery", "Raised premium finish for polos, caps, jackets, and gifts", "Premium", "Printing", "/images/product-printing-embroidery.png"],
+      ["Sublimation", "All-over artwork for sportswear and event apparel", "Custom quote", "Printing", "/images/product-printing-sublimation.png"],
+      ["Vinyl", "Names, numbers, and crisp single-color applications", "Custom quote", "Printing", "/images/product-printing-vinyl.png"],
     ],
   },
 ];
