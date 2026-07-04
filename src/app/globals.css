@@ -411,8 +411,6 @@ textarea {
   }
 
   .home-panel {
-    align-items: center;
-    display: flex;
     min-height: calc(100svh - 86px);
     scroll-snap-align: start;
     scroll-snap-stop: always;
