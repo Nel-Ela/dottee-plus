@@ -23,8 +23,8 @@ export function BrandLogo({
     <Link href="/" className="inline-flex items-center" aria-label="Dottee Plus home">
       <Image
         src={src}
-        width={isFull ? 1403 : 1387}
-        height={isFull ? 412 : 315}
+        width={isFull ? 791 : 791}
+        height={isFull ? 236 : 198}
         alt="Dottee Corporate Gifts and T Shirts"
         className={
           isFull
