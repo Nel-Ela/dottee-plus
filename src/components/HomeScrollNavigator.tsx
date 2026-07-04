@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const sections = [
   ["home-hero", "Home"],
   ["home-solutions", "Solutions"],
+  ["home-stockroom", "Stockroom"],
   ["home-studio", "Studio"],
   ["home-welcome-kits", "Welcome kits"],
   ["home-apparel", "Apparel"],

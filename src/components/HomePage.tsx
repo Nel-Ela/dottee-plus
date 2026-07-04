@@ -9,6 +9,7 @@ import {
   OrderFlowSection,
   PortfolioAndCTA,
   ProofStrip,
+  ReadyStockSection,
   PrintingMethodsSection,
   ProcessSection,
   ProductCategoryGrid,
@@ -28,6 +29,7 @@ export function HomePage() {
         <ProofStrip />
         <Marquee />
         <ProductCategoryGrid />
+        <ReadyStockSection />
         <BrandStudioSection />
         <BestSellersSection />
         <TShirtCustomizationSection />

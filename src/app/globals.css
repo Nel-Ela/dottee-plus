@@ -663,8 +663,65 @@ textarea {
 }
 
 .welcome-kit-section,
-.apparel-program-section {
+.apparel-program-section,
+.stockroom-section {
   overflow: hidden;
+}
+
+.stockroom-hero {
+  aspect-ratio: 1.58;
+  border: 1px solid rgba(26, 26, 36, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 28px 80px rgba(26, 26, 36, 0.16);
+  overflow: hidden;
+  position: relative;
+}
+
+.stockroom-hero::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26, 26, 36, 0) 46%, rgba(26, 26, 36, 0.68) 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.stockroom-price-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(26, 26, 36, 0.08);
+  border-radius: 8px;
+  bottom: 16px;
+  box-shadow: 0 18px 44px rgba(26, 26, 36, 0.18);
+  color: var(--charcoal);
+  display: grid;
+  gap: 2px;
+  left: 16px;
+  max-width: calc(100% - 32px);
+  padding: 14px 16px;
+  position: absolute;
+  z-index: 2;
+}
+
+.stockroom-price-card span {
+  color: var(--teal-dark);
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.stockroom-price-card strong {
+  color: var(--orange);
+  font-family: var(--font-syne), system-ui, sans-serif;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1;
+}
+
+.stockroom-price-card small {
+  color: var(--gray-500);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.45;
 }
 
 .kit-visual,

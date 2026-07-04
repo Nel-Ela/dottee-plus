@@ -9,6 +9,7 @@ const filters = [
   ["all", "All Products"],
   ["onboarding", "Employee Onboarding"],
   ["apparel", "Corporate Apparel"],
+  ["stockroom", "Stockroom"],
   ["office", "Office Essentials"],
   ["event", "Event Merch"],
   ["gifts", "Premium Gifts"],

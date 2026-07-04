@@ -15,6 +15,7 @@ export const navLinks = [
 export const categories = [
   ["Employee Welcome Kits", "Joining kits with apparel, bottles, notebooks, pens, ID accessories, and gift-ready packaging.", "Onboarding", "orange", "/images/dottee-2026-welcome-kit.png"],
   ["Corporate Apparel", "Polos, T-shirts, hoodies, jackets, and uniforms customized for teams and departments.", "Teams", "teal", "/images/dottee-2026-apparel-program.png"],
+  ["Stockroom", "Hyper-real front/back T-shirt samples for Tamil, Murugan, fan-edition, trip, and custom designs.", "Ready stock", "purple", "/images/stockroom-tamilanda-front-back.png"],
   ["Event Merchandise", "Caps, badges, lanyards, tote bags, tees, and promotional products for events and conferences.", "Events", "purple", "/images/dottee-2026-solution-collage.png"],
   ["Office Essentials", "Mugs, bottles, notebooks, mouse pads, calendars, desk kits, and daily-use branded items.", "Daily use", "orange", "/images/dottee-2026-solution-collage.png"],
   ["Premium Gift Boxes", "Curated gift sets for festivals, milestones, clients, leadership teams, and special campaigns.", "Gifting", "teal", "/images/dottee-2026-welcome-kit.png"],
@@ -40,6 +41,15 @@ export const bestSellers = [
   ["Conference Kit", "Lanyard, badge, tote, cap, bottle, notebook, booth giveaways, and event apparel.", "From Rs. 499/kit"],
   ["Client Gift Box", "Premium drinkware, desk essentials, festive add-ons, branded packaging, and delivery support.", "Custom quote"],
 ];
+
+export const readyStock = [
+  ["Tamilanda Tee", "Front chest mark and bold back Tamil print with realistic cotton and ink texture", "T-shirts from Rs. 399+", "Tamil", "/images/stockroom-tamilanda-front-back.png"],
+  ["Murugan Vel Tee", "Front Vel icon with a large back print using peacock, temple, and devotional artwork", "From Rs. 399/tee", "Murugan", "/images/stockroom-murugan-front-back.png"],
+  ["Fan Edition Tee", "Cinema-inspired front and back fan artwork for trending local drops", "From Rs. 449/tee", "Fan style", "/images/stockroom-jailer-style-front-back.png"],
+  ["Custom Trip Tee", "Front pocket trip mark and back design with group names, route art, and icons", "From Rs. 399/tee", "Custom", "/images/stockroom-custom-trip-front-back.png"],
+  ["Family Sets", "Matching front/back concepts for dad, mom, kid, birthday, reunion, and anniversary tees", "From Rs. 399/tee", "Family", "/images/stockroom-custom-trip-front-back.png"],
+  ["Cricket Jersey Art", "Name, number, cricket, tournament, and team-color artwork for front/back production", "From Rs. 499/jersey", "Sports", "/images/stockroom-jailer-style-front-back.png"],
+] as const;
 
 export const printMethods = [
   ["Screen Printing", "Best for bold logos, large batches, and durable team uniforms."],
@@ -86,8 +96,17 @@ export const productGroups = [
     items: apparel,
   },
   {
-    key: "office",
+    key: "stockroom",
     number: "03",
+    title: "Stockroom",
+    color: "var(--orange)",
+    image: "/images/stockroom-tamilanda-front-back.png",
+    imageAlt: "Hyper-realistic front and back Tamilanda T-shirt sample mockup",
+    items: readyStock,
+  },
+  {
+    key: "office",
+    number: "04",
     title: "Office Essentials",
     color: "var(--purple)",
     image: "/images/products-office-catalogue.png",
@@ -102,7 +121,7 @@ export const productGroups = [
   },
   {
     key: "event",
-    number: "04",
+    number: "05",
     title: "Event Merchandise",
     color: "var(--orange)",
     image: "/images/products-event-catalogue.png",
@@ -118,7 +137,7 @@ export const productGroups = [
   },
   {
     key: "gifts",
-    number: "05",
+    number: "06",
     title: "Premium Gifts",
     color: "var(--teal-dark)",
     image: "/images/products-gifts-catalogue.png",
@@ -132,7 +151,7 @@ export const productGroups = [
   },
   {
     key: "printing",
-    number: "06",
+    number: "07",
     title: "Printing Methods",
     color: "var(--purple)",
     image: "/images/products-printing-catalogue.png",

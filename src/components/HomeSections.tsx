@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { bestSellers, buyerQuestions, categories, orderSteps, printMethods, processSteps, proofPoints, useCases } from "@/lib/data";
+import { bestSellers, buyerQuestions, categories, orderSteps, printMethods, processSteps, proofPoints, readyStock, useCases } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/BrandLogo";
 
 const tone: Record<string, string> = {
@@ -196,6 +196,78 @@ export function BestSellersSection() {
           <Link href="/quote" className="btn btn-primary mt-6 px-8">
             Build Welcome Kit
           </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ReadyStockSection() {
+  const quickTags = ["Front/back tees", "Tamilanda", "Murugan", "Fan editions", "Trip tees", "Custom names"];
+
+  return (
+    <section id="home-stockroom" className="home-panel stockroom-section section-pad bg-white">
+      <div className="container-page">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <SectionHeading
+              label="Stockroom"
+              title="Hyper-real front/back T-shirt samples customers can picture instantly."
+              text="Show printed examples that feel already produced: Tamilanda typography, Murugan Vel artwork, cinema fan-edition graphics, trip tees, family names, and custom back-print designs for fast orders."
+            />
+            <div className="mt-6 flex flex-wrap gap-2">
+              {quickTags.map((tag) => (
+                <span key={tag} className="rounded-full border border-[var(--gray-100)] bg-[var(--warm-white)] px-4 py-2 text-sm font-bold">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <Link href="/products#stockroom" className="btn btn-primary px-8">
+                View Stockroom
+              </Link>
+              <Link href="/quote" className="btn border border-[var(--gray-100)] bg-white px-8 text-[var(--charcoal)] shadow-sm">
+                Ask for Rs. 399+ Front/Back Tees
+              </Link>
+            </div>
+          </div>
+          <div className="stockroom-hero">
+            <Image
+              src="/images/stockroom-tamilanda-front-back.png"
+              alt="Hyper-realistic front and back Tamilanda custom T-shirt sample"
+              fill
+              sizes="(min-width: 1024px) 54vw, 100vw"
+              className="object-cover"
+            />
+            <div className="stockroom-price-card">
+              <span>Ready drops</span>
+              <strong>Rs. 399+</strong>
+              <small>Front/back T-shirt samples and custom artwork</small>
+            </div>
+          </div>
+        </div>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {readyStock.slice(0, 3).map(([name, text, price, label, image]) => (
+            <Link key={name} href="/quote" className="card group overflow-hidden">
+              <div className="relative h-56 overflow-hidden bg-[var(--gray-50)]">
+                <Image
+                  src={image}
+                  alt={`${name} ready stock product sample`}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                />
+                <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-2 text-xs font-black text-[var(--charcoal)] shadow-sm">
+                  {label}
+                </span>
+              </div>
+              <div className="p-5">
+                <h3 className="font-display text-xl font-bold">{name}</h3>
+                <p className="mt-2 min-h-12 text-sm leading-6 text-[var(--gray-500)]">{text}</p>
+                <strong className="font-display mt-4 block text-[var(--orange)]">{price}</strong>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
