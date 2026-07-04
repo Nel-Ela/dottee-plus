@@ -4,9 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { contact, orderSteps, printMethods } from "@/lib/data";
 
-const requirementTypes = ["Welcome kit", "Corporate apparel", "Event merchandise", "Premium gifts", "Printing only", "Not sure yet"];
+const requirementTypes = ["Stockroom front/back T-shirts", "Welcome kit", "Corporate apparel", "Event merchandise", "Premium gifts", "Printing only", "Not sure yet"];
 const quantityRanges = ["25-50", "51-100", "101-500", "500+"];
-const productInterests = ["Polos", "T-shirts", "Hoodies", "Mugs", "Bottles", "Notebooks", "Pens", "Lanyards", "Gift boxes", "Bags", "Caps", "Other"];
+const productInterests = ["Front/back T-shirts", "Tamilanda tees", "Murugan tees", "Fan edition tees", "Trip tees", "Cricket jerseys", "Polos", "Hoodies", "Mugs", "Bottles", "Notebooks", "Gift boxes", "Other"];
 
 export function QuoteForm() {
   const [step, setStep] = useState(1);

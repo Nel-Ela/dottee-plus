@@ -114,7 +114,7 @@ export function ProductCategoryGrid() {
         </div>
         <div className="grid gap-4 min-[520px]:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-6">
           {categories.map(([name, desc, count, color, image], index) => (
-            <Link key={name} href="/products" className="card solution-card overflow-hidden" style={{ "--accent": color === "teal" ? "var(--teal)" : color === "purple" ? "var(--purple)" : "var(--orange)" } as CSSProperties}>
+            <a key={name} href={name === "Stockroom" ? "/products/#stockroom" : "/products/"} className="card solution-card overflow-hidden" style={{ "--accent": color === "teal" ? "var(--teal)" : color === "purple" ? "var(--purple)" : "var(--orange)" } as CSSProperties}>
               <div className="solution-card-media relative h-44 overflow-hidden md:h-52" style={{ background: tone[color] }}>
                 <Image
                   src={image}
@@ -131,7 +131,7 @@ export function ProductCategoryGrid() {
                 <p className="mt-2 text-sm leading-6 text-[var(--gray-500)]">{desc}</p>
                 <span className="mt-4 inline-flex text-sm font-bold text-[var(--orange)]">Plan this solution -&gt;</span>
               </div>
-            </Link>
+            </a>
           ))}
         </div>
       </div>
@@ -223,9 +223,9 @@ export function ReadyStockSection() {
               ))}
             </div>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link href="/products#stockroom" className="btn btn-primary px-8">
+              <a href="/products/#stockroom" className="btn btn-primary px-8">
                 View Stockroom
-              </Link>
+              </a>
               <Link href="/quote" className="btn border border-[var(--gray-100)] bg-white px-8 text-[var(--charcoal)] shadow-sm">
                 Ask for Rs. 399+ Front/Back Tees
               </Link>
