@@ -1,15 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export function BrandLogo({ dark = false }: { dark?: boolean }) {
+export function BrandLogo({ dark = false, lockup = "wordmark" }: { dark?: boolean; lockup?: "wordmark" | "full" }) {
+  const isFull = lockup === "full";
+  const src = isFull
+    ? dark
+      ? "/logos/dottee-logo-white.png"
+      : "/logos/dottee-logo-black.png"
+    : dark
+      ? "/logos/dottee-wordmark-white.png"
+      : "/logos/dottee-wordmark-black.png";
+
   return (
     <Link href="/" className="inline-flex items-center" aria-label="Dottee Plus home">
       <Image
-        src={dark ? "/logos/dottee-logo-white.png" : "/logos/dottee-logo-black.png"}
-        width={1403}
-        height={412}
+        src={src}
+        width={isFull ? 1403 : 1387}
+        height={isFull ? 412 : 315}
         alt="Dottee Corporate Gifts and T Shirts"
-        className="h-auto w-[154px] sm:w-[178px]"
+        className={isFull ? "h-auto w-[220px] sm:w-[280px]" : "h-auto w-[164px] sm:w-[206px]"}
         priority
       />
     </Link>

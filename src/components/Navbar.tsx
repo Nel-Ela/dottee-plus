@@ -12,7 +12,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[rgba(26,26,36,0.07)] bg-[rgba(250,248,245,0.95)] backdrop-blur-2xl">
-      <div className="container-page flex h-[68px] items-center justify-between gap-4">
+      <div className="container-page flex h-[76px] items-center justify-between gap-4">
         <BrandLogo />
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
           {navLinks.map((link) => {
