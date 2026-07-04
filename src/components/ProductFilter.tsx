@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { productGroups } from "@/lib/data";
 
@@ -15,9 +15,76 @@ const filters = [
   ["printing", "Printing"],
 ] as const;
 
+const cropPositions = [
+  "50% 50%",
+  "18% 50%",
+  "82% 48%",
+  "50% 18%",
+  "22% 82%",
+  "78% 78%",
+  "38% 58%",
+] as const;
+
 export function ProductCatalogue() {
   const [active, setActive] = useState("all");
-  const groups = productGroups.filter((group) => active === "all" || group.key === active);
+
+  useEffect(() => {
+    const sectionIds = productGroups.map((group) => `section-${group.key}`);
+    const validKeys = new Set(productGroups.map((group) => group.key));
+
+    const scrollToInitialHash = () => {
+      const hashKey = window.location.hash.replace("#", "");
+      if (!validKeys.has(hashKey)) return;
+
+      const scrollToTarget = () => {
+        const section = document.getElementById(`section-${hashKey}`);
+        if (!section) return;
+
+        setActive(hashKey);
+        const top = section.getBoundingClientRect().top + window.scrollY - 150;
+        window.scrollTo({ top, behavior: "auto" });
+      };
+
+      requestAnimationFrame(scrollToTarget);
+      window.setTimeout(scrollToTarget, 250);
+    };
+
+    const updateActiveSection = () => {
+      const start = document.getElementById("catalogue-start");
+      if (start && start.getBoundingClientRect().top > 120) {
+        setActive("all");
+        return;
+      }
+
+      const current = sectionIds
+        .map((id) => document.getElementById(id))
+        .filter(Boolean)
+        .reverse()
+        .find((section) => section!.getBoundingClientRect().top <= 170);
+
+      if (current) {
+        setActive(current.id.replace("section-", ""));
+      }
+    };
+
+    updateActiveSection();
+    scrollToInitialHash();
+    const delayedHashScroll = window.setTimeout(scrollToInitialHash, 700);
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("hashchange", scrollToInitialHash);
+    return () => {
+      window.clearTimeout(delayedHashScroll);
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("hashchange", scrollToInitialHash);
+    };
+  }, []);
+
+  const jumpToSection = (key: string) => {
+    const targetId = key === "all" ? "catalogue-start" : `section-${key}`;
+    document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", key === "all" ? "/products" : `/products#${key}`);
+    setActive(key);
+  };
 
   return (
     <>
@@ -29,7 +96,7 @@ export function ProductCatalogue() {
               type="button"
               className="shrink-0 rounded-full px-4 py-2 text-sm font-bold transition"
               style={active === key ? { background: "var(--charcoal)", color: "white" } : { background: "var(--gray-50)", color: "var(--gray-700)" }}
-              onClick={() => setActive(key)}
+              onClick={() => jumpToSection(key)}
             >
               {label}
             </button>
@@ -41,7 +108,7 @@ export function ProductCatalogue() {
           </select>
         </div>
       </div>
-      <section className="section-pad bg-[var(--warm-white)]">
+      <section id="catalogue-start" className="section-pad scroll-mt-36 bg-[var(--warm-white)]">
         <div className="container-page grid gap-16">
           <div className="grid gap-4 rounded-lg border border-[var(--gray-100)] bg-white p-5 shadow-sm md:grid-cols-[1fr_auto] md:items-center md:p-6">
             <div>
@@ -54,9 +121,9 @@ export function ProductCatalogue() {
               Place Bulk Order
             </Link>
           </div>
-          {active === "all" || active === "onboarding" ? <WelcomeFeature /> : null}
-          {groups.map((group) => (
-            <section key={group.key}>
+          <WelcomeFeature />
+          {productGroups.map((group) => (
+            <section key={group.key} id={`section-${group.key}`} className="scroll-mt-40">
               <div className="mb-7 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                 <div>
                   <span className="font-mono-brand text-xs font-medium uppercase tracking-[0.14em]" style={{ color: group.color }}>
@@ -70,12 +137,23 @@ export function ProductCatalogue() {
               </div>
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {group.items.map(([name, spec, price, label], index) => (
-                  <Link key={name} href="/quote" className="card overflow-hidden">
-                    <div className="relative grid h-40 place-items-center bg-[linear-gradient(145deg,var(--orange-tint),var(--teal-tint))]">
+                  <Link key={name} href="/quote" className="card group overflow-hidden">
+                    <div className="relative h-48 overflow-hidden bg-[var(--gray-50)]">
+                      <Image
+                        src={group.image}
+                        alt={`${name} for ${group.title}`}
+                        fill
+                        sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                        style={{ objectPosition: cropPositions[index % cropPositions.length] }}
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,26,36,0)_42%,rgba(26,26,36,0.62)_100%)]" />
                       {index === 0 ? (
                         <span className="absolute right-4 top-4 rounded-full bg-[var(--orange)] px-3 py-1 text-xs font-bold text-white">POPULAR</span>
                       ) : null}
-                      <div className="grid h-16 w-16 place-items-center rounded-2xl bg-white text-3xl font-black text-[var(--orange)]">{name.charAt(0)}</div>
+                      <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3 py-2 text-xs font-black text-[var(--charcoal)] shadow-sm">
+                        {label}
+                      </span>
                     </div>
                     <div className="p-5">
                       <span className="font-mono-brand text-[11px] uppercase tracking-[0.12em] text-[var(--teal-dark)]">{label}</span>
@@ -102,7 +180,7 @@ function WelcomeFeature() {
     <div className="dot-grid grid gap-8 overflow-hidden rounded-[24px] bg-[var(--charcoal)] p-6 text-white md:grid-cols-[0.9fr_1.1fr] md:p-10">
       <div>
         <span className="label text-[var(--teal)]">Featured employee welcome kit</span>
-        <h2 className="font-display mt-3 text-3xl font-extrabold leading-tight md:text-4xl">
+        <h2 className="font-display mt-3 text-2xl font-extrabold leading-tight md:text-4xl">
           Procurement-ready first-day kits.
         </h2>
         <p className="mt-5 max-w-xl leading-8 text-white/60">

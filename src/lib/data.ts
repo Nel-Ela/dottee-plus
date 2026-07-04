@@ -64,6 +64,8 @@ export const productGroups = [
     number: "01",
     title: "Employee Onboarding",
     color: "var(--orange)",
+    image: "/images/products-onboarding-catalogue.png",
+    imageAlt: "Employee onboarding kit with apparel, bottle, mug, notebook, pen, lanyard and packaging",
     items: [
       ["Welcome Kits", "Gift-ready joining boxes with apparel, bottle, notebook, pen, and card", "From Rs. 999/kit", "Onboarding"],
       ["Joining Kits", "Role-wise kit combinations for HR and people teams", "Custom quote", "Onboarding"],
@@ -79,6 +81,8 @@ export const productGroups = [
     number: "02",
     title: "Corporate Apparel",
     color: "var(--teal-dark)",
+    image: "/images/products-apparel-catalogue.png",
+    imageAlt: "Corporate apparel range with professional models wearing polos, t-shirts, hoodies, jackets and uniforms",
     items: apparel,
   },
   {
@@ -86,6 +90,8 @@ export const productGroups = [
     number: "03",
     title: "Office Essentials",
     color: "var(--purple)",
+    image: "/images/products-office-catalogue.png",
+    imageAlt: "Office essentials with mugs, bottles, notebooks, calendars, desk pads and stationery",
     items: [
       ["Mugs", "Ceramic, matte, color-handle, and premium mug options", "From Rs. 149/pc", "Office"],
       ["Bottles", "Steel, copper, sipper, and travel bottle branding", "From Rs. 299/pc", "Office"],
@@ -99,6 +105,8 @@ export const productGroups = [
     number: "04",
     title: "Event Merchandise",
     color: "var(--orange)",
+    image: "/images/products-event-catalogue.png",
+    imageAlt: "Event merchandise with lanyards, badges, tote bags, caps, stickers and booth branding",
     items: [
       ["Lanyards", "Printed, woven, and badge-ready event lanyards", "From Rs. 39/pc", "Event"],
       ["Badges", "Conference badges, ID cards, and access credentials", "Custom quote", "Event"],
@@ -113,6 +121,8 @@ export const productGroups = [
     number: "05",
     title: "Premium Gifts",
     color: "var(--teal-dark)",
+    image: "/images/products-gifts-catalogue.png",
+    imageAlt: "Premium corporate gift boxes with tech gifts, hampers, packaging and executive accessories",
     items: [
       ["Executive Gift Sets", "Premium boxes for clients, leaders, and milestone programs", "Custom quote", "Gifts"],
       ["Tech Gifts", "Laptop sleeves, organizers, wireless accessories, and desk tech", "Custom quote", "Gifts"],
@@ -125,6 +135,8 @@ export const productGroups = [
     number: "06",
     title: "Printing Methods",
     color: "var(--purple)",
+    image: "/images/products-printing-catalogue.png",
+    imageAlt: "Printing methods studio with screen printing tools, embroidery, DTF, DTG, sublimation and vinyl samples",
     items: [
       ["Screen Printing", "Durable bulk printing for bold logos and large batches", "Bulk ready", "Printing"],
       ["DTF", "Flexible full-color prints for apparel and quick production", "Fast track", "Printing"],
