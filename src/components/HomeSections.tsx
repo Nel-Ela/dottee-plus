@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { bestSellers, buyerQuestions, categories, orderSteps, printMethods, processSteps, proofPoints, useCases } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/BrandLogo";
 
@@ -90,17 +91,31 @@ export function Marquee() {
 
 export function ProductCategoryGrid() {
   return (
-    <section id="solutions" className="section-pad bg-[var(--warm-white)]">
+    <section id="solutions" className="solutions-showcase section-pad bg-[var(--warm-white)]">
       <div className="container-page">
-        <SectionHeading
-          label="Corporate solutions"
-          title="Corporate gifting solutions for every business moment."
-          text="Choose a solution, share your quantity and delivery address, approve artwork, and place one organized bulk order across products, packaging, and dispatch."
-        />
+        <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-end">
+          <SectionHeading
+            label="Corporate solutions"
+            title="Corporate gifting solutions for every business moment."
+            text="Choose a solution, share your quantity and delivery address, approve artwork, and place one organized bulk order across products, packaging, and dispatch."
+          />
+          <div className="solution-orbit" aria-hidden="true">
+            <Image
+              src="/images/dottee-2026-solution-collage.png"
+              alt=""
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              className="object-cover"
+            />
+            <span className="orbit-chip chip-one">Onboarding</span>
+            <span className="orbit-chip chip-two">Events</span>
+            <span className="orbit-chip chip-three">Packaging</span>
+          </div>
+        </div>
         <div className="grid gap-4 min-[520px]:grid-cols-2 xl:grid-cols-3">
-          {categories.map(([name, desc, count, color, image]) => (
-            <Link key={name} href="/products" className="card overflow-hidden">
-              <div className="relative h-40 overflow-hidden md:h-48" style={{ background: tone[color] }}>
+          {categories.map(([name, desc, count, color, image], index) => (
+            <Link key={name} href="/products" className="card solution-card overflow-hidden" style={{ "--accent": color === "teal" ? "var(--teal)" : color === "purple" ? "var(--purple)" : "var(--orange)" } as CSSProperties}>
+              <div className="solution-card-media relative h-44 overflow-hidden md:h-52" style={{ background: tone[color] }}>
                 <Image
                   src={image}
                   alt={`${name} product mockup`}
@@ -108,6 +123,7 @@ export function ProductCategoryGrid() {
                   sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
                   className="object-cover transition duration-500 hover:scale-105"
                 />
+                <span className="solution-card-index">0{index + 1}</span>
               </div>
               <div className="p-4 md:p-5">
                 <span className="label">{count}</span>
@@ -140,25 +156,46 @@ export function ProofStrip() {
 
 export function BestSellersSection() {
   return (
-    <section className="section-pad bg-[var(--off-white)]">
-      <div className="container-page">
-        <SectionHeading
-          label="Employee welcome kits"
-          title="First-day kits that feel planned, packed, and brand-ready."
-          text="Give HR and founders a simple path from joining-kit idea to approved mockups, sourcing, packaging, and multi-location delivery."
-        />
-        <div className="grid gap-5 lg:grid-cols-3">
-          {bestSellers.map(([name, text, price], index) => (
-            <Link key={name} href="/quote" className="card p-5 md:p-6">
-              <span className="label">Best seller 0{index + 1}</span>
-              <h3 className="font-display mt-3 text-2xl font-extrabold">{name}</h3>
-              <p className="mt-3 text-sm leading-7 text-[var(--gray-500)]">{text}</p>
-              <div className="mt-5 flex items-center justify-between gap-4 border-t border-[var(--gray-100)] pt-4">
-                <strong className="font-display text-xl text-[var(--orange)]">{price}</strong>
-                <span className="text-sm font-bold text-[var(--charcoal)]">Get quote -&gt;</span>
-              </div>
-            </Link>
-          ))}
+    <section className="welcome-kit-section section-pad bg-[var(--off-white)]">
+      <div className="container-page grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+        <div className="kit-visual">
+          <Image
+            src="/images/dottee-2026-welcome-kit.png"
+            alt="Premium employee welcome kit with apparel, bottle, mug, notebook, lanyard, and packaging"
+            fill
+            sizes="(min-width: 1024px) 52vw, 100vw"
+            className="object-cover"
+          />
+          <div className="kit-floating-card kit-card-one">
+            <span>01</span>
+            <strong>Boxed kit</strong>
+          </div>
+          <div className="kit-floating-card kit-card-two">
+            <span>02</span>
+            <strong>Artwork proof</strong>
+          </div>
+        </div>
+        <div>
+          <SectionHeading
+            label="Employee welcome kits"
+            title="First-day kits that feel planned, packed, and brand-ready."
+            text="Give HR and founders a simple path from joining-kit idea to approved mockups, sourcing, packaging, and multi-location delivery."
+          />
+          <div className="grid gap-3">
+            {bestSellers.map(([name, text, price], index) => (
+              <Link key={name} href="/quote" className="kit-row">
+                <span className="kit-row-number">0{index + 1}</span>
+                <span>
+                  <strong>{name}</strong>
+                  <small>{text}</small>
+                </span>
+                <em>{price}</em>
+              </Link>
+            ))}
+          </div>
+          <Link href="/quote" className="btn btn-primary mt-6 px-8">
+            Build Welcome Kit
+          </Link>
         </div>
       </div>
     </section>
@@ -168,8 +205,8 @@ export function BestSellersSection() {
 export function TShirtCustomizationSection() {
   const zones = ["Department polos", "Event tees", "Staff uniforms", "Hoodies", "Caps", "Packaging"];
   return (
-    <section className="section-pad bg-[var(--off-white)]">
-      <div className="container-page grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+    <section className="apparel-program-section section-pad bg-[var(--off-white)]">
+      <div className="container-page grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
         <div>
           <SectionHeading
             label="Corporate apparel"
@@ -184,13 +221,21 @@ export function TShirtCustomizationSection() {
             ))}
           </div>
         </div>
-        <div className="rounded-[24px] bg-[var(--charcoal)] p-6 text-white dot-grid">
-          <div className="grid gap-4 sm:grid-cols-2">
+        <div className="apparel-showcase">
+          <div className="apparel-photo">
+            <Image
+              src="/images/dottee-2026-apparel-program.png"
+              alt="Corporate apparel program with polo, t-shirt, hoodie, jacket, cap, fabric swatches, and print placement guides"
+              fill
+              sizes="(min-width: 1024px) 58vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="apparel-zone-grid">
             {zones.map((zone, index) => (
-              <div key={zone} className="rounded-2xl border border-white/10 bg-white/[0.06] p-5">
-                <span className="font-display text-3xl font-extrabold text-[var(--orange)]">0{index + 1}</span>
-                <h3 className="mt-3 font-display text-xl font-bold">{zone}</h3>
-                <p className="mt-2 text-sm leading-6 text-white/55">Repeatable specs with artwork approval and production guidance.</p>
+              <div key={zone} className="apparel-zone-card">
+                <span>0{index + 1}</span>
+                <strong>{zone}</strong>
               </div>
             ))}
           </div>
@@ -202,8 +247,9 @@ export function TShirtCustomizationSection() {
 
 export function BrandStudioSection() {
   return (
-    <section id="studio" className="section-pad bg-[var(--charcoal)] text-white">
-      <div className="container-page grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+    <section id="studio" className="brand-studio-section section-pad bg-[var(--charcoal)] text-white">
+      <div className="studio-glow" aria-hidden="true" />
+      <div className="container-page grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
         <div>
           <span className="label text-[var(--teal)]">Brand Experience Studio</span>
           <h2 className="font-display mt-3 text-3xl font-extrabold leading-tight md:text-4xl lg:text-5xl">
@@ -220,13 +266,24 @@ export function BrandStudioSection() {
             ))}
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-3 md:gap-4">
-          {Object.entries(industryBundles).map(([industry, bundle], index) => (
-            <div key={industry} className="rounded-lg border border-white/10 bg-white/[0.06] p-4 md:p-5" style={index === 0 ? { background: "var(--orange)", color: "white" } : undefined}>
-              <h3 className="font-display text-base font-bold md:text-xl">{industry}</h3>
-              <p className="mt-2 text-xs leading-5 text-white/58 md:mt-3 md:text-sm md:leading-6">{bundle.slice(0, 5).join(" / ")}</p>
-            </div>
-          ))}
+        <div className="studio-board">
+          <div className="studio-image">
+            <Image
+              src="/images/dottee-2026-brand-studio.png"
+              alt="Brand merchandise planning studio with product samples, proof boards, packaging, apparel, delivery planning, and industry bundles"
+              fill
+              sizes="(min-width: 1024px) 58vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="studio-industry-grid">
+            {Object.entries(industryBundles).map(([industry, bundle], index) => (
+              <Link key={industry} href="/quote" className="studio-industry-card" style={{ "--delay": `${index * 0.12}s` } as CSSProperties}>
+                <span>{industry}</span>
+                <strong>{bundle.slice(0, 3).join(" / ")}</strong>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -317,9 +374,9 @@ export function OrderFlowSection() {
 
 export function PortfolioAndCTA() {
   const examples = [
-    ["Onboarding kit rollout", "Welcome boxes, apparel, drinkware, notebook, ID accessories, and branded packaging.", "/images/dottee-welcome-kit-category.png"],
-    ["Team apparel program", "Polos, tees, hoodies, jackets, caps, and department-wise artwork placement.", "/images/dottee-apparel-category.png"],
-    ["Event merchandise kit", "Lanyards, badges, tote bags, caps, bottles, stickers, and booth giveaways.", "/images/dottee-event-merch-category.png"],
+    ["Onboarding kit rollout", "Welcome boxes, apparel, drinkware, notebook, ID accessories, and branded packaging.", "/images/dottee-2026-welcome-kit.png"],
+    ["Team apparel program", "Polos, tees, hoodies, jackets, caps, and department-wise artwork placement.", "/images/dottee-2026-apparel-program.png"],
+    ["Event merchandise kit", "Lanyards, badges, tote bags, caps, bottles, stickers, and booth giveaways.", "/images/dottee-2026-solution-collage.png"],
   ] as const;
 
   return (

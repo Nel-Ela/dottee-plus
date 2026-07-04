@@ -13,12 +13,12 @@ export const navLinks = [
 ];
 
 export const categories = [
-  ["Employee Welcome Kits", "Joining kits with apparel, bottles, notebooks, pens, ID accessories, and gift-ready packaging.", "Onboarding", "orange", "/images/dottee-welcome-kit-category.png"],
-  ["Corporate Apparel", "Polos, T-shirts, hoodies, jackets, and uniforms customized for teams and departments.", "Teams", "teal", "/images/dottee-apparel-category.png"],
-  ["Event Merchandise", "Caps, badges, lanyards, tote bags, tees, and promotional products for events and conferences.", "Events", "purple", "/images/dottee-event-merch-category.png"],
-  ["Office Essentials", "Mugs, bottles, notebooks, mouse pads, calendars, desk kits, and daily-use branded items.", "Daily use", "orange", "/images/dottee-custom-everything-hero-4k.png"],
-  ["Premium Gift Boxes", "Curated gift sets for festivals, milestones, clients, leadership teams, and special campaigns.", "Gifting", "teal", "/images/dottee-hero-merch-kit-v2.png"],
-  ["Printing & Branding", "Screen printing, DTF, embroidery, sublimation, vinyl, and packaging customization.", "Production", "purple", "/images/dottee-hero-merch-kit.png"],
+  ["Employee Welcome Kits", "Joining kits with apparel, bottles, notebooks, pens, ID accessories, and gift-ready packaging.", "Onboarding", "orange", "/images/dottee-2026-welcome-kit.png"],
+  ["Corporate Apparel", "Polos, T-shirts, hoodies, jackets, and uniforms customized for teams and departments.", "Teams", "teal", "/images/dottee-2026-apparel-program.png"],
+  ["Event Merchandise", "Caps, badges, lanyards, tote bags, tees, and promotional products for events and conferences.", "Events", "purple", "/images/dottee-2026-solution-collage.png"],
+  ["Office Essentials", "Mugs, bottles, notebooks, mouse pads, calendars, desk kits, and daily-use branded items.", "Daily use", "orange", "/images/dottee-2026-solution-collage.png"],
+  ["Premium Gift Boxes", "Curated gift sets for festivals, milestones, clients, leadership teams, and special campaigns.", "Gifting", "teal", "/images/dottee-2026-welcome-kit.png"],
+  ["Printing & Branding", "Screen printing, DTF, embroidery, sublimation, vinyl, and packaging customization.", "Production", "purple", "/images/dottee-2026-brand-studio.png"],
 ] as const;
 
 export const proofPoints = [

@@ -119,7 +119,7 @@ function WelcomeFeature() {
       </div>
       <div className="relative min-h-72 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06]">
         <Image
-          src="/images/dottee-welcome-kit-category.png"
+          src="/images/dottee-2026-welcome-kit.png"
           alt="Premium employee welcome kit with apparel, bottle, mug, notebook, pen, and lanyard"
           fill
           sizes="(min-width: 768px) 50vw, 100vw"
