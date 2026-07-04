@@ -21,7 +21,7 @@ const industryBundles: Record<string, string[]> = {
 
 export function HeroSection() {
   return (
-    <section className="hero-impact dot-grid relative overflow-hidden bg-[var(--charcoal)] text-white">
+    <section id="home-hero" className="home-panel hero-impact dot-grid relative overflow-hidden bg-[var(--charcoal)] text-white">
       <div className="idea-strip" aria-hidden="true">
         <span>WELCOME KITS</span>
         <span>CORPORATE GIFTS</span>
@@ -91,7 +91,7 @@ export function Marquee() {
 
 export function ProductCategoryGrid() {
   return (
-    <section id="solutions" className="solutions-showcase section-pad bg-[var(--warm-white)]">
+    <section id="home-solutions" className="home-panel solutions-showcase section-pad bg-[var(--warm-white)]">
       <div className="container-page">
         <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-end">
           <SectionHeading
@@ -112,7 +112,7 @@ export function ProductCategoryGrid() {
             <span className="orbit-chip chip-three">Packaging</span>
           </div>
         </div>
-        <div className="grid gap-4 min-[520px]:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-4 min-[520px]:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-6">
           {categories.map(([name, desc, count, color, image], index) => (
             <Link key={name} href="/products" className="card solution-card overflow-hidden" style={{ "--accent": color === "teal" ? "var(--teal)" : color === "purple" ? "var(--purple)" : "var(--orange)" } as CSSProperties}>
               <div className="solution-card-media relative h-44 overflow-hidden md:h-52" style={{ background: tone[color] }}>
@@ -156,7 +156,7 @@ export function ProofStrip() {
 
 export function BestSellersSection() {
   return (
-    <section className="welcome-kit-section section-pad bg-[var(--off-white)]">
+    <section id="home-welcome-kits" className="home-panel welcome-kit-section section-pad bg-[var(--off-white)]">
       <div className="container-page grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
         <div className="kit-visual">
           <Image
@@ -205,7 +205,7 @@ export function BestSellersSection() {
 export function TShirtCustomizationSection() {
   const zones = ["Department polos", "Event tees", "Staff uniforms", "Hoodies", "Caps", "Packaging"];
   return (
-    <section className="apparel-program-section section-pad bg-[var(--off-white)]">
+    <section id="home-apparel" className="home-panel apparel-program-section section-pad bg-[var(--off-white)]">
       <div className="container-page grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
         <div>
           <SectionHeading
@@ -247,7 +247,7 @@ export function TShirtCustomizationSection() {
 
 export function BrandStudioSection() {
   return (
-    <section id="studio" className="brand-studio-section section-pad bg-[var(--charcoal)] text-white">
+    <section id="home-studio" className="home-panel brand-studio-section section-pad bg-[var(--charcoal)] text-white">
       <div className="studio-glow" aria-hidden="true" />
       <div className="container-page grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
         <div>
@@ -292,7 +292,7 @@ export function BrandStudioSection() {
 
 export function PrintingMethodsSection() {
   return (
-    <section className="section-pad bg-[var(--warm-white)]">
+    <section id="home-printing" className="home-panel section-pad bg-[var(--warm-white)]">
       <div className="container-page grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div>
           <SectionHeading
@@ -335,7 +335,7 @@ export function PrintingMethodsSection() {
 
 export function ProcessSection() {
   return (
-    <section id="process" className="section-pad bg-[var(--off-white)]">
+    <section id="home-process" className="home-panel section-pad bg-[var(--off-white)]">
       <div className="container-page">
         <SectionHeading label="Procurement process" title="From brief to dispatch without the usual bulk-order chaos." center />
         <div className="grid gap-5 md:grid-cols-4">
@@ -356,7 +356,7 @@ export function ProcessSection() {
 
 export function OrderFlowSection() {
   return (
-    <section className="section-pad bg-white">
+    <section id="home-order-flow" className="home-panel section-pad bg-white">
       <div className="container-page grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
         <div>
           <span className="label">How to place an order</span>
@@ -411,7 +411,7 @@ export function PortfolioAndCTA() {
   ] as const;
 
   return (
-    <section id="portfolio" className="section-pad bg-[var(--warm-white)]">
+    <section id="home-portfolio" className="home-panel section-pad bg-[var(--warm-white)]">
       <div className="container-page">
         <SectionHeading label="Portfolio preview" title="Built for corporate programs that need to look considered." />
         <div className="grid gap-5 md:grid-cols-3">
@@ -440,7 +440,7 @@ export function PortfolioAndCTA() {
 
 export function EventMerchandiseSection() {
   return (
-    <section className="section-pad bg-[var(--warm-white)]">
+    <section id="home-event-merch" className="home-panel section-pad bg-[var(--warm-white)]">
       <div className="container-page grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-center">
         <div>
           <SectionHeading
@@ -486,7 +486,7 @@ export function EventMerchandiseSection() {
 
 export function QuoteCTASection() {
   return (
-    <section className="dot-grid bg-[var(--charcoal)] py-20 text-center text-white">
+    <section id="home-quote" className="home-panel dot-grid bg-[var(--charcoal)] py-20 text-center text-white">
       <div className="container-page">
         <span className="label text-[var(--teal)]">Get quote in 2 hours</span>
         <h2 className="font-display mx-auto mt-4 max-w-3xl text-3xl font-extrabold leading-tight md:text-4xl lg:text-5xl">
@@ -507,7 +507,7 @@ export function QuoteCTASection() {
 
 export function BuyerQuestionsSection() {
   return (
-    <section className="section-pad bg-[var(--off-white)]">
+    <section id="home-questions" className="home-panel section-pad bg-[var(--off-white)]">
       <div className="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <span className="label">Buyer questions</span>

@@ -16,13 +16,14 @@ import {
   TShirtCustomizationSection,
 } from "@/components/HomeSections";
 import { MobileActionBar } from "@/components/MobileActionBar";
+import { HomeScrollNavigator } from "@/components/HomeScrollNavigator";
 import { Navbar } from "@/components/Navbar";
 
 export default function Home() {
   return (
     <div>
       <Navbar />
-      <main>
+      <main className="home-scroll-stage">
         <HeroSection />
         <ProofStrip />
         <Marquee />
@@ -39,6 +40,7 @@ export default function Home() {
         <QuoteCTASection />
       </main>
       <Footer />
+      <HomeScrollNavigator />
       <MobileActionBar />
     </div>
   );
