@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { MobileActionBar } from "@/components/MobileActionBar";
 import { Navbar } from "@/components/Navbar";
-import { SectionHeading } from "@/components/ui/BrandLogo";
+import { BrandLogo, SectionHeading } from "@/components/ui/BrandLogo";
 import { values } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -73,10 +73,9 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
-            <div className="dot-grid rounded-lg bg-[var(--charcoal)] p-10 text-center text-white">
-              <div className="mx-auto grid h-28 w-28 place-items-center rounded-full bg-[var(--orange)] font-display text-5xl font-extrabold">T</div>
-              <h3 className="font-display mt-6 text-3xl font-extrabold">dottee+plus</h3>
-              <p className="mt-3 text-white/55">Premium merchandise for brands that care about details.</p>
+            <div className="dot-grid flex min-h-[280px] flex-col items-center justify-center rounded-lg bg-[var(--charcoal)] p-10 text-center text-white">
+              <BrandLogo dark lockup="full" impact />
+              <p className="mt-6 max-w-sm text-white/55">Premium merchandise for brands that care about details.</p>
             </div>
           </div>
         </section>

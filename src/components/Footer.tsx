@@ -5,9 +5,9 @@ import { BrandLogo } from "@/components/ui/BrandLogo";
 export function Footer() {
   return (
     <footer className="bg-[#111118] px-0 py-14 text-white">
-      <div className="container-page grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+      <div className="container-page grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
-          <BrandLogo dark lockup="full" />
+          <BrandLogo dark lockup="full" impact />
           <p className="mt-5 max-w-sm text-sm leading-7 text-white/45">
             Corporate gifting and brand merchandise studio for welcome kits, apparel, office essentials, event merchandise, and premium gift boxes.
           </p>

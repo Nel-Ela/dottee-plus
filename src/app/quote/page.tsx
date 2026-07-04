@@ -13,11 +13,14 @@ export const metadata: Metadata = {
 export default function QuotePage() {
   return (
     <main className="min-h-screen bg-[var(--warm-white)] pb-20 md:pb-0">
-      <header className="border-b border-[var(--gray-100)] bg-[rgba(250,248,245,0.95)] py-4 backdrop-blur-xl">
-        <div className="container-page flex items-center justify-between">
-          <BrandLogo />
-          <Link href="/" className="text-sm font-semibold text-[var(--gray-500)]">
-            &lt;- Back to Home
+      <header className="border-b border-[var(--gray-100)] bg-[rgba(250,248,245,0.95)] backdrop-blur-xl">
+        <div className="container-page grid h-[86px] grid-cols-[64px_1fr_64px] items-center gap-3 lg:flex lg:justify-between">
+          <div className="col-start-2 flex justify-center lg:col-auto lg:block">
+            <BrandLogo impact />
+          </div>
+          <Link href="/" className="col-start-3 text-right text-sm font-semibold text-[var(--gray-500)] lg:col-auto">
+            <span className="lg:hidden">Home</span>
+            <span className="hidden lg:inline">&lt;- Back to Home</span>
           </Link>
         </div>
       </header>

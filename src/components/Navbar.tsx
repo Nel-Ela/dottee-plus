@@ -12,8 +12,13 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[rgba(26,26,36,0.07)] bg-[rgba(250,248,245,0.95)] backdrop-blur-2xl">
-      <div className="container-page flex h-[76px] items-center justify-between gap-4">
-        <BrandLogo />
+      <div className="container-page grid h-[86px] grid-cols-[44px_1fr_44px] items-center gap-3 lg:flex lg:justify-between lg:gap-4">
+        <div className="hidden lg:block">
+          <BrandLogo impact />
+        </div>
+        <div className="col-start-2 flex justify-center lg:hidden">
+          <BrandLogo impact />
+        </div>
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
           {navLinks.map((link) => {
             const active = link.href !== "/" && pathname === link.href;
@@ -36,7 +41,7 @@ export function Navbar() {
         </div>
         <button
           type="button"
-          className="grid h-11 w-11 place-items-center rounded-lg border border-[var(--gray-100)] bg-white lg:hidden"
+          className="col-start-3 grid h-11 w-11 place-items-center rounded-lg border border-[var(--gray-100)] bg-white lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label="Open navigation menu"

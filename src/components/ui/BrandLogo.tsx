@@ -1,7 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export function BrandLogo({ dark = false, lockup = "wordmark" }: { dark?: boolean; lockup?: "wordmark" | "full" }) {
+export function BrandLogo({
+  dark = false,
+  lockup = "wordmark",
+  impact = false,
+}: {
+  dark?: boolean;
+  lockup?: "wordmark" | "full";
+  impact?: boolean;
+}) {
   const isFull = lockup === "full";
   const src = isFull
     ? dark
@@ -18,7 +26,15 @@ export function BrandLogo({ dark = false, lockup = "wordmark" }: { dark?: boolea
         width={isFull ? 1403 : 1387}
         height={isFull ? 412 : 315}
         alt="Dottee Corporate Gifts and T Shirts"
-        className={isFull ? "h-auto w-[220px] sm:w-[280px]" : "h-auto w-[164px] sm:w-[206px]"}
+        className={
+          isFull
+            ? impact
+              ? "h-auto w-[250px] sm:w-[320px]"
+              : "h-auto w-[220px] sm:w-[280px]"
+            : impact
+              ? "h-auto w-[190px] sm:w-[230px]"
+              : "h-auto w-[164px] sm:w-[206px]"
+        }
         priority
       />
     </Link>
