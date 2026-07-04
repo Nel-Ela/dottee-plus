@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { contact, printMethods } from "@/lib/data";
+import { contact, orderSteps, printMethods } from "@/lib/data";
 
 const requirementTypes = ["Welcome kit", "Corporate apparel", "Event merchandise", "Premium gifts", "Printing only", "Not sure yet"];
 const quantityRanges = ["25-50", "51-100", "101-500", "500+"];
@@ -50,6 +50,7 @@ export function QuoteForm() {
             <Field label="Deadline" placeholder="Example: 20 July 2026" />
           </div>
           <Field label="Delivery city" placeholder="Mumbai, Bengaluru, Delhi..." />
+          <Field label="Delivery address / branch list" as="textarea" placeholder="Share office address, event venue, campus, branch list, or employee-address delivery requirement." />
           <ChipGroup label="Products you are considering" items={productInterests} />
           <Field label="Message" as="textarea" placeholder="Share budget, quantity, event date, kit contents, branding needs, or anything you are unsure about." />
           <button className="btn btn-primary" type="button" onClick={() => setStep(2)}>
@@ -95,7 +96,7 @@ export function QuoteForm() {
           <Field label="Designation / role" />
           <Field label="How did you find us?" as="select" options={["Google", "Instagram", "Referral", "LinkedIn", "Event", "Other"]} />
           <div className="rounded-lg bg-[var(--orange-tint)] p-4 text-sm leading-6 text-[var(--charcoal)]">
-            Not sure what to choose? Share your budget, quantity, and event date. We will recommend the right products and branding method.
+            Not sure what to choose? Share your budget, quantity, delivery address, and event date. We will recommend the right products and branding method.
           </div>
           <label className="flex items-start gap-3 text-sm leading-6 text-[var(--gray-500)]">
             <input type="checkbox" className="mt-1 accent-[var(--orange)]" /> I agree to be contacted by Dottee Plus about this quote request.
@@ -143,6 +144,30 @@ function StepShell({ label, title, text, children }: { label: string; title: str
       <h1 className="font-display mt-2 text-3xl font-extrabold leading-tight md:text-5xl">{title}</h1>
       <p className="mt-3 leading-8 text-[var(--gray-500)]">{text}</p>
       <div className="mt-8 grid gap-6">{children}</div>
+    </div>
+  );
+}
+
+export function QuoteOrderGuide() {
+  return (
+    <div className="rounded-[24px] bg-white p-6 shadow-sm">
+      <span className="label">Order placement path</span>
+      <div className="mt-5 grid gap-4">
+        {orderSteps.map(([title, text], index) => (
+          <div key={title} className="flex gap-4">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[var(--charcoal)] font-display text-sm font-extrabold text-white">
+              {index + 1}
+            </span>
+            <div>
+              <h3 className="font-display font-bold">{title}</h3>
+              <p className="mt-1 text-sm leading-6 text-[var(--gray-500)]">{text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <a href={`https://wa.me/${contact.whatsapp}`} className="btn btn-whatsapp mt-6 w-full">
+        Place Order on WhatsApp
+      </a>
     </div>
   );
 }

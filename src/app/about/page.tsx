@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { MobileActionBar } from "@/components/MobileActionBar";
 import { Navbar } from "@/components/Navbar";
 import { BrandLogo, SectionHeading } from "@/components/ui/BrandLogo";
-import { values } from "@/lib/data";
+import { contact, orderSteps, values } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About",
@@ -98,6 +98,33 @@ export default function AboutPage() {
                   <span className="font-mono-brand text-xs font-medium uppercase tracking-[0.14em] text-[var(--orange)]">{year}</span>
                   <h3 className="font-display mt-2 text-2xl font-bold">{title}</h3>
                   <p className="mt-2 leading-7 text-[var(--gray-500)]">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-pad bg-white">
+          <div className="container-page grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+            <div>
+              <span className="label">Ordering and delivery</span>
+              <h2 className="font-display mt-3 text-3xl font-extrabold leading-tight md:text-5xl">
+                A clear path for customers, teams, events, and multi-location orders.
+              </h2>
+              <p className="mt-5 text-base leading-8 text-[var(--gray-500)]">
+                Dottee Plus captures the product mix, logo files, quantity, budget, deadline, and delivery address before production begins. {contact.serviceArea}.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link href="/quote" className="btn btn-primary px-8">Place an Order</Link>
+                <a href={`https://wa.me/${contact.whatsapp}`} className="btn btn-whatsapp px-8">WhatsApp</a>
+              </div>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {orderSteps.map(([title, text], index) => (
+                <div key={title} className="card p-5">
+                  <span className="label">0{index + 1}</span>
+                  <h3 className="font-display mt-2 text-xl font-bold">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[var(--gray-500)]">{text}</p>
                 </div>
               ))}
             </div>

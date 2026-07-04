@@ -21,7 +21,7 @@ export function ProductCatalogue() {
 
   return (
     <>
-      <div className="sticky top-[68px] z-30 overflow-hidden border-b border-[var(--gray-100)] bg-white/95 backdrop-blur-xl">
+      <div className="sticky top-[86px] z-30 overflow-hidden border-b border-[var(--gray-100)] bg-white/95 backdrop-blur-xl">
         <div className="container-page no-scrollbar flex gap-3 overflow-x-auto py-4">
           {filters.map(([key, label]) => (
             <button
@@ -43,6 +43,17 @@ export function ProductCatalogue() {
       </div>
       <section className="section-pad bg-[var(--warm-white)]">
         <div className="container-page grid gap-16">
+          <div className="grid gap-4 rounded-lg border border-[var(--gray-100)] bg-white p-5 shadow-sm md:grid-cols-[1fr_auto] md:items-center md:p-6">
+            <div>
+              <span className="label">How ordering works</span>
+              <p className="mt-2 text-sm leading-6 text-[var(--gray-500)] md:text-base">
+                Pick products, open the quote form, share quantity, artwork, deadline, and delivery address. Dottee Plus sends a quote and artwork proof before production.
+              </p>
+            </div>
+            <Link href="/quote" className="btn btn-primary px-8">
+              Place Bulk Order
+            </Link>
+          </div>
           {active === "all" || active === "onboarding" ? <WelcomeFeature /> : null}
           {groups.map((group) => (
             <section key={group.key}>
@@ -72,7 +83,7 @@ export function ProductCatalogue() {
                       <p className="mt-2 min-h-12 text-sm leading-6 text-[var(--gray-500)]">{spec}</p>
                       <div className="mt-5 flex items-center justify-between border-t border-[var(--gray-100)] pt-4 text-sm">
                         <strong className="font-display text-[var(--orange)]">{price}</strong>
-                        <span className="font-semibold text-[var(--gray-500)]">Bulk ready</span>
+                        <span className="font-semibold text-[var(--gray-500)]">Add to quote</span>
                       </div>
                     </div>
                   </Link>

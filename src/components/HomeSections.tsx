@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { bestSellers, buyerQuestions, categories, printMethods, processSteps, proofPoints, useCases } from "@/lib/data";
+import { bestSellers, buyerQuestions, categories, orderSteps, printMethods, processSteps, proofPoints, useCases } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/BrandLogo";
 
 const tone: Record<string, string> = {
@@ -50,7 +50,7 @@ export function HeroSection() {
         <div className="hero-impact-visual" aria-label="Custom merchandise preview">
           <div className="merch-stage">
             <Image
-              src="/images/dottee-custom-everything-hero-4k.png"
+              src="/images/dottee-2026-merch-program-hero.png"
               alt="Custom apparel, mugs, bottles, caps, bags, stickers, and welcome kit box arranged as a premium Dottee Plus merchandise set"
               fill
               priority
@@ -95,12 +95,12 @@ export function ProductCategoryGrid() {
         <SectionHeading
           label="Corporate solutions"
           title="Corporate gifting solutions for every business moment."
-          text="Move beyond item-by-item ordering. Build complete programs for onboarding, gifting, events, apparel, office essentials, and branded packaging."
+          text="Choose a solution, share your quantity and delivery address, approve artwork, and place one organized bulk order across products, packaging, and dispatch."
         />
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-4 min-[520px]:grid-cols-2 xl:grid-cols-3">
           {categories.map(([name, desc, count, color, image]) => (
             <Link key={name} href="/products" className="card overflow-hidden">
-              <div className="relative h-48 overflow-hidden" style={{ background: tone[color] }}>
+              <div className="relative h-40 overflow-hidden md:h-48" style={{ background: tone[color] }}>
                 <Image
                   src={image}
                   alt={`${name} product mockup`}
@@ -109,9 +109,9 @@ export function ProductCategoryGrid() {
                   className="object-cover transition duration-500 hover:scale-105"
                 />
               </div>
-              <div className="p-5">
+              <div className="p-4 md:p-5">
                 <span className="label">{count}</span>
-                <h3 className="font-display mt-2 text-xl font-bold">{name}</h3>
+                <h3 className="font-display mt-2 text-lg font-bold md:text-xl">{name}</h3>
                 <p className="mt-2 text-sm leading-6 text-[var(--gray-500)]">{desc}</p>
                 <span className="mt-4 inline-flex text-sm font-bold text-[var(--orange)]">Plan this solution -&gt;</span>
               </div>
@@ -125,12 +125,12 @@ export function ProductCategoryGrid() {
 
 export function ProofStrip() {
   return (
-    <section className="bg-white py-8">
-      <div className="container-page grid gap-4 md:grid-cols-4">
+    <section className="bg-white py-5 md:py-8">
+      <div className="container-page grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
         {proofPoints.map(([title, text]) => (
-          <div key={title} className="rounded-2xl border border-[var(--gray-100)] bg-[var(--warm-white)] p-5">
-            <h3 className="font-display text-xl font-bold">{title}</h3>
-            <p className="mt-2 text-sm leading-6 text-[var(--gray-500)]">{text}</p>
+          <div key={title} className="rounded-lg border border-[var(--gray-100)] bg-[var(--warm-white)] p-4 md:p-5">
+            <h3 className="font-display text-base font-bold md:text-xl">{title}</h3>
+            <p className="mt-2 text-xs leading-5 text-[var(--gray-500)] md:text-sm md:leading-6">{text}</p>
           </div>
         ))}
       </div>
@@ -149,11 +149,11 @@ export function BestSellersSection() {
         />
         <div className="grid gap-5 lg:grid-cols-3">
           {bestSellers.map(([name, text, price], index) => (
-            <Link key={name} href="/quote" className="card p-6">
+            <Link key={name} href="/quote" className="card p-5 md:p-6">
               <span className="label">Best seller 0{index + 1}</span>
               <h3 className="font-display mt-3 text-2xl font-extrabold">{name}</h3>
-              <p className="mt-3 min-h-16 text-sm leading-7 text-[var(--gray-500)]">{text}</p>
-              <div className="mt-6 flex items-center justify-between border-t border-[var(--gray-100)] pt-5">
+              <p className="mt-3 text-sm leading-7 text-[var(--gray-500)]">{text}</p>
+              <div className="mt-5 flex items-center justify-between gap-4 border-t border-[var(--gray-100)] pt-4">
                 <strong className="font-display text-xl text-[var(--orange)]">{price}</strong>
                 <span className="text-sm font-bold text-[var(--charcoal)]">Get quote -&gt;</span>
               </div>
@@ -220,11 +220,11 @@ export function BrandStudioSection() {
             ))}
           </div>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-3 md:gap-4">
           {Object.entries(industryBundles).map(([industry, bundle], index) => (
-            <div key={industry} className="rounded-lg border border-white/10 bg-white/[0.06] p-5" style={index === 0 ? { background: "var(--orange)", color: "white" } : undefined}>
-              <h3 className="font-display text-xl font-bold">{industry}</h3>
-              <p className="mt-3 text-sm leading-6 text-white/58">{bundle.join(" / ")}</p>
+            <div key={industry} className="rounded-lg border border-white/10 bg-white/[0.06] p-4 md:p-5" style={index === 0 ? { background: "var(--orange)", color: "white" } : undefined}>
+              <h3 className="font-display text-base font-bold md:text-xl">{industry}</h3>
+              <p className="mt-2 text-xs leading-5 text-white/58 md:mt-3 md:text-sm md:leading-6">{bundle.slice(0, 5).join(" / ")}</p>
             </div>
           ))}
         </div>
@@ -275,20 +275,72 @@ export function ProcessSection() {
   );
 }
 
+export function OrderFlowSection() {
+  return (
+    <section className="section-pad bg-white">
+      <div className="container-page grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+        <div>
+          <span className="label">How to place an order</span>
+          <h2 className="font-display mt-3 text-3xl font-extrabold leading-tight md:text-4xl lg:text-5xl">
+            From product idea to confirmed bulk order in four clear moves.
+          </h2>
+          <p className="mt-5 text-base leading-8 text-[var(--gray-500)] md:text-lg">
+            Customers can start from Products, Solutions, WhatsApp, email, or the quote form. Dottee Plus then turns the brief into a quote, artwork proof, production plan, and delivery schedule.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link href="/quote" className="btn btn-primary px-8">
+              Start Quote
+            </Link>
+            <Link href="/products" className="btn bg-[var(--charcoal)] px-8 text-white">
+              Browse Products
+            </Link>
+          </div>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {orderSteps.map(([title, text], index) => (
+            <Link key={title} href={index === 0 ? "/products" : "/quote"} className="card p-5 md:p-6">
+              <span className="font-mono-brand text-xs font-medium uppercase tracking-[0.14em] text-[var(--teal-dark)]">
+                Order 0{index + 1}
+              </span>
+              <h3 className="font-display mt-3 text-xl font-bold">{title}</h3>
+              <p className="mt-3 text-sm leading-7 text-[var(--gray-500)]">{text}</p>
+              <span className="mt-5 inline-flex text-sm font-bold text-[var(--orange)]">
+                {index === 0 ? "View products" : "Open quote form"} -&gt;
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function PortfolioAndCTA() {
+  const examples = [
+    ["Onboarding kit rollout", "Welcome boxes, apparel, drinkware, notebook, ID accessories, and branded packaging.", "/images/dottee-welcome-kit-category.png"],
+    ["Team apparel program", "Polos, tees, hoodies, jackets, caps, and department-wise artwork placement.", "/images/dottee-apparel-category.png"],
+    ["Event merchandise kit", "Lanyards, badges, tote bags, caps, bottles, stickers, and booth giveaways.", "/images/dottee-event-merch-category.png"],
+  ] as const;
+
   return (
     <section id="portfolio" className="section-pad bg-[var(--warm-white)]">
       <div className="container-page">
         <SectionHeading label="Portfolio preview" title="Built for corporate programs that need to look considered." />
         <div className="grid gap-5 md:grid-cols-3">
-          {["Fintech onboarding kits", "Hospital staff apparel", "Conference merchandise"].map((item, index) => (
-            <div key={item} className="card overflow-hidden">
-              <div className="h-56" style={{ background: index === 0 ? tone.orange : index === 1 ? tone.teal : tone.purple }}>
-                <div className="grid h-full place-items-center font-display text-5xl font-extrabold text-[var(--charcoal)]/20">0{index + 1}</div>
+          {examples.map(([title, text, image]) => (
+            <div key={title} className="card overflow-hidden">
+              <div className="relative h-52 overflow-hidden bg-[var(--off-white)]">
+                <Image
+                  src={image}
+                  alt={`${title} Dottee Plus merchandise preview`}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover transition duration-500 hover:scale-105"
+                />
               </div>
               <div className="p-6">
-                <h3 className="font-display text-xl font-bold">{item}</h3>
-                <p className="mt-2 text-sm leading-6 text-[var(--gray-500)]">Mockups, production, packing, and delivery managed end to end.</p>
+                <h3 className="font-display text-xl font-bold">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-[var(--gray-500)]">{text}</p>
               </div>
             </div>
           ))}

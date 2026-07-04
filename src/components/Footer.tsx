@@ -20,6 +20,7 @@ export function Footer() {
             <a href={`mailto:${contact.email}`}>{contact.email}</a>
             <Link href="/quote">Request a bulk quote</Link>
             <a href={`https://wa.me/${contact.whatsapp}`}>WhatsApp requirement</a>
+            <span>{contact.serviceArea}</span>
           </div>
         </div>
       </div>

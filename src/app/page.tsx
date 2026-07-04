@@ -6,6 +6,7 @@ import {
   EventMerchandiseSection,
   HeroSection,
   Marquee,
+  OrderFlowSection,
   PortfolioAndCTA,
   ProofStrip,
   PrintingMethodsSection,
@@ -32,6 +33,7 @@ export default function Home() {
         <EventMerchandiseSection />
         <PrintingMethodsSection />
         <PortfolioAndCTA />
+        <OrderFlowSection />
         <ProcessSection />
         <BuyerQuestionsSection />
         <QuoteCTASection />

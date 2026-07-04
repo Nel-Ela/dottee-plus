@@ -1,6 +1,7 @@
 export const contact = {
   email: "hello@dotteeplus.com",
   whatsapp: "918838320810",
+  serviceArea: "PAN-India delivery to offices, event venues, campuses, branches, and employee addresses",
 };
 
 export const navLinks = [
@@ -16,8 +17,8 @@ export const categories = [
   ["Corporate Apparel", "Polos, T-shirts, hoodies, jackets, and uniforms customized for teams and departments.", "Teams", "teal", "/images/dottee-apparel-category.png"],
   ["Event Merchandise", "Caps, badges, lanyards, tote bags, tees, and promotional products for events and conferences.", "Events", "purple", "/images/dottee-event-merch-category.png"],
   ["Office Essentials", "Mugs, bottles, notebooks, mouse pads, calendars, desk kits, and daily-use branded items.", "Daily use", "orange", "/images/dottee-custom-everything-hero-4k.png"],
-  ["Premium Gift Boxes", "Curated gift sets for festivals, milestones, clients, leadership teams, and special campaigns.", "Gifting", "teal", "/images/dottee-welcome-kit-category.png"],
-  ["Printing & Branding", "Screen printing, DTF, embroidery, sublimation, vinyl, and packaging customization.", "Production", "purple", "/images/dottee-apparel-category.png"],
+  ["Premium Gift Boxes", "Curated gift sets for festivals, milestones, clients, leadership teams, and special campaigns.", "Gifting", "teal", "/images/dottee-hero-merch-kit-v2.png"],
+  ["Printing & Branding", "Screen printing, DTF, embroidery, sublimation, vinyl, and packaging customization.", "Production", "purple", "/images/dottee-hero-merch-kit.png"],
 ] as const;
 
 export const proofPoints = [
@@ -26,6 +27,13 @@ export const proofPoints = [
   ["Quality check", "Products move through sourcing, decoration, packing, and dispatch checks."],
   ["PAN-India delivery", "Ship to one office, multiple branches, campuses, hospitals, or event venues."],
 ];
+
+export const orderSteps = [
+  ["Pick a solution", "Browse products or choose a business moment: onboarding, apparel, events, office essentials, gifts, or printing."],
+  ["Share requirement", "Send quantity, budget, deadline, logo files, product interests, and delivery address or branch list."],
+  ["Approve quote", "Review kit contents, pricing, timelines, print method, artwork proof, packaging, and dispatch plan."],
+  ["Place order", "Confirm the quotation, pay as agreed, approve artwork, and Dottee Plus coordinates production and delivery updates."],
+] as const;
 
 export const bestSellers = [
   ["New Joiner Kit", "Gift box, polo or tee, bottle, notebook, pen, stickers, ID accessories, and welcome card.", "From Rs. 999/kit"],

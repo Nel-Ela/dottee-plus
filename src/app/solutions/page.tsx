@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { MobileActionBar } from "@/components/MobileActionBar";
 import { Navbar } from "@/components/Navbar";
 import { SectionHeading } from "@/components/ui/BrandLogo";
-import { categories, processSteps, useCases } from "@/lib/data";
+import { categories, orderSteps, processSteps, useCases } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Corporate Gifting Solutions",
@@ -48,7 +48,7 @@ export default function SolutionsPage() {
             </div>
             <div className="relative min-h-[360px] overflow-hidden rounded-lg border border-white/10 bg-white/[0.06]">
               <Image
-                src="/images/dottee-custom-everything-hero-4k.png"
+                src="/images/dottee-2026-merch-program-hero.png"
                 alt="Dottee Plus branded merchandise across apparel, mugs, bottles, caps, stickers, and gift packaging"
                 fill
                 priority
@@ -139,18 +139,27 @@ export default function SolutionsPage() {
           <div className="container-page">
             <SectionHeading
               label="Workflow"
-              title="One vertical page scroll. One clear procurement flow."
-              text="Move from brief to quote to artwork approval to production without trapping users in nested page panels."
+              title="One clear procurement flow from browsing to order confirmation."
+              text="Customers can place an order by choosing products, submitting a brief, approving the quote and artwork, then confirming production and delivery."
               center
             />
             <div className="grid gap-5 md:grid-cols-4">
-              {processSteps.map(([title, desc], index) => (
+              {orderSteps.map(([title, desc], index) => (
                 <div key={title} className="rounded-lg border border-white/10 bg-white/[0.06] p-6">
                   <div className="grid h-12 w-12 place-items-center rounded-full bg-[var(--orange)] font-display text-lg font-extrabold text-white">
                     {index + 1}
                   </div>
                   <h3 className="font-display mt-5 text-xl font-bold">{title}</h3>
                   <p className="mt-3 text-sm leading-7 text-white/55">{desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-10 grid gap-5 md:grid-cols-4">
+              {processSteps.map(([title, desc], index) => (
+                <div key={title} className="rounded-lg border border-white/10 p-5">
+                  <span className="label text-[var(--teal)]">Production 0{index + 1}</span>
+                  <h3 className="font-display mt-3 text-lg font-bold">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-white/55">{desc}</p>
                 </div>
               ))}
             </div>
