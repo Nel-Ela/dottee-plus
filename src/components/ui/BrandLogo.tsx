@@ -3,11 +3,15 @@ import Link from "next/link";
 
 export function BrandLogo({ dark = false }: { dark?: boolean }) {
   return (
-    <Link href="/" className="inline-flex items-center gap-2" aria-label="Dottee Plus home">
-      <Image src="/logos/logo-icon.svg" width={36} height={36} alt="" priority />
-      <span className="font-display text-lg font-extrabold" style={{ color: dark ? "white" : "var(--charcoal)" }}>
-        dottee<span style={{ color: "var(--orange)" }}>+</span>plus
-      </span>
+    <Link href="/" className="inline-flex items-center" aria-label="Dottee Plus home">
+      <Image
+        src={dark ? "/logos/dottee-logo-white.png" : "/logos/dottee-logo-black.png"}
+        width={1403}
+        height={412}
+        alt="Dottee Corporate Gifts and T Shirts"
+        className="h-auto w-[154px] sm:w-[178px]"
+        priority
+      />
     </Link>
   );
 }
