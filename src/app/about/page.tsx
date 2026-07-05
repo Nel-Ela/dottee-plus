@@ -79,7 +79,7 @@ export default function AboutPage() {
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {values.map(([title, text], index) => (
                 <div key={title} className="card p-7" style={index === 1 ? { background: "var(--charcoal)", color: "white" } : index === 3 ? { background: "var(--orange)", color: "white" } : undefined}>
-                  <div className="mb-5 grid h-13 w-13 place-items-center rounded-lg bg-[var(--orange-tint)] text-sm font-black text-[var(--orange)]">OK</div>
+                  <div className="mb-5 grid h-13 w-13 place-items-center rounded-lg bg-[var(--orange-tint)] text-sm font-black text-[var(--orange)]">✓</div>
                   <h3 className="font-display text-xl font-bold">{title}</h3>
                   <p className="mt-3 text-sm leading-7" style={index === 1 || index === 3 ? { color: "rgba(255,255,255,0.68)" } : { color: "var(--gray-500)" }}>{text}</p>
                 </div>

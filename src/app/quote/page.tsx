@@ -32,7 +32,7 @@ export default function QuotePage() {
             <div className="mt-6 grid gap-5">
               {["Procurement-ready quote", "Artwork approval", "PAN-India delivery", "Quality check"].map((item) => (
                 <div key={item} className="flex gap-4">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[var(--orange)] font-black">OK</span>
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[var(--orange)] font-black">✓</span>
                   <div>
                     <h3 className="font-display font-bold">{item}</h3>
                     <p className="mt-1 text-sm leading-6 text-white/50">Clear communication, practical options, and production-ready guidance.</p>
@@ -47,9 +47,6 @@ export default function QuotePage() {
               <a href={`mailto:${contact.email}`} className="mt-4 block text-center text-sm text-white/55">
                 {contact.email}
               </a>
-            </div>
-            <div className="mt-6 rounded-2xl border border-white/10 p-5 text-sm leading-7 text-white/60">
-              Real client testimonials and client logos should be added only after they are verified.
             </div>
           </div>
           <QuoteOrderGuide />
