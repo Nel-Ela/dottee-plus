@@ -5,8 +5,10 @@ export const contact = {
 };
 
 export const navLinks = [
+  { href: "/", label: "Home" },
   { href: "/solutions", label: "Solutions" },
   { href: "/products", label: "Products" },
+  { href: "/products#stockroom", label: "Stockroom" },
   { href: "/#home-studio", label: "Industries" },
   { href: "/#home-portfolio", label: "Portfolio" },
   { href: "/about", label: "About" },

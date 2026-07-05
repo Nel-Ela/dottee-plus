@@ -112,9 +112,9 @@ export function ProductCategoryGrid() {
             <span className="orbit-chip chip-three">Packaging</span>
           </div>
         </div>
-        <div className="grid gap-4 min-[520px]:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-6">
+        <div className="grid gap-4 min-[520px]:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-7">
           {categories.map(([name, desc, count, color, image], index) => (
-            <a key={name} href={name === "Stockroom" ? "/products/#stockroom" : "/products/"} className="card solution-card overflow-hidden" style={{ "--accent": color === "teal" ? "var(--teal)" : color === "purple" ? "var(--purple)" : "var(--orange)" } as CSSProperties}>
+            <a key={name} href={name === "Stockroom" ? "/products/#stockroom" : "/products/"} className="card solution-card overflow-hidden" style={{ "--accent": color === "teal" ? "var(--teal)" : color === "purple" ? "var(--purple)" : "var(--orange)", "--delay": `${index * 0.05}s` } as CSSProperties}>
               <div className="solution-card-media relative h-44 overflow-hidden md:h-52" style={{ background: tone[color] }}>
                 <Image
                   src={image}

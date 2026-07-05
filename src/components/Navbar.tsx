@@ -21,13 +21,12 @@ export function Navbar() {
         </div>
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
           {navLinks.map((link) => {
-            const active = link.href !== "/" && pathname === link.href;
+            const active = link.href === "/" ? pathname === "/" : !link.href.includes("#") && pathname === link.href;
             return (
               <Link
                 key={link.label}
                 href={link.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-[var(--gray-500)] transition hover:bg-[var(--orange-tint)] hover:text-[var(--orange)]"
-                style={active ? { background: "var(--orange-tint)", color: "var(--orange)" } : undefined}
+                className={`nav-link ${active ? "is-active" : ""}`}
               >
                 {link.label}
               </Link>
@@ -54,7 +53,7 @@ export function Navbar() {
         <div id="mobile-menu" className="border-t border-[var(--gray-100)] bg-[var(--warm-white)] lg:hidden">
           <nav className="container-page grid gap-2 py-4" aria-label="Mobile navigation">
             {navLinks.map((link) => (
-              <Link key={link.label} href={link.href} className="rounded-lg px-3 py-3 font-semibold" onClick={() => setOpen(false)}>
+              <Link key={link.label} href={link.href} className="rounded-lg px-3 py-3 font-extrabold transition hover:bg-[var(--orange-tint)] hover:text-[var(--orange)]" onClick={() => setOpen(false)}>
                 {link.label}
               </Link>
             ))}

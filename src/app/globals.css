@@ -369,6 +369,45 @@ textarea {
   text-transform: uppercase;
 }
 
+.nav-link {
+  border-radius: 999px;
+  color: var(--gray-700);
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1;
+  overflow: hidden;
+  padding: 12px 14px;
+  position: relative;
+  transition: color 0.22s ease, transform 0.22s ease, background 0.22s ease;
+}
+
+.nav-link::after {
+  background: var(--orange);
+  border-radius: 999px;
+  bottom: 6px;
+  content: "";
+  height: 3px;
+  left: 14px;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.24s ease;
+  width: calc(100% - 28px);
+}
+
+.nav-link:hover,
+.nav-link.is-active {
+  background: var(--orange-tint);
+  color: var(--orange);
+  transform: translateY(-2px);
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
 .card {
   border: 1px solid rgba(26, 26, 36, 0.06);
   border-radius: 8px;
@@ -641,6 +680,8 @@ textarea {
 }
 
 .solution-card {
+  animation: rise-soft 0.58s ease both;
+  animation-delay: var(--delay);
   isolation: isolate;
 }
 
