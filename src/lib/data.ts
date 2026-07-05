@@ -49,8 +49,8 @@ export const readyStock = [
   ["Murugan Vel Tee", "Front Vel icon with a large back print using peacock, temple, and devotional artwork", "From Rs. 399/tee", "Murugan", "/images/stockroom-murugan-front-back.png"],
   ["Fan Edition Tee", "Cinema-inspired front and back fan artwork for trending local drops", "From Rs. 449/tee", "Fan style", "/images/stockroom-jailer-style-front-back.png"],
   ["Custom Trip Tee", "Front pocket trip mark and back design with group names, route art, and icons", "From Rs. 399/tee", "Custom", "/images/stockroom-custom-trip-front-back.png"],
-  ["Family Sets", "Matching front/back concepts for dad, mom, kid, birthday, reunion, and anniversary tees", "From Rs. 399/tee", "Family", "/images/stockroom-custom-trip-front-back.png"],
-  ["Cricket Jersey Art", "Name, number, cricket, tournament, and team-color artwork for front/back production", "From Rs. 499/jersey", "Sports", "/images/stockroom-jailer-style-front-back.png"],
+  ["Family Sets", "Front trip mark and back crew list with names, route signposts, and travel icons — built for family reunions and group getaways", "From Rs. 399/tee", "Family", "/images/stockroom-custom-trip-front-back.png"],
+  ["Cricket Jersey Art", "Name, number, cricket, tournament, and team-color artwork designed to order for your squad — share your team colors for a mockup", "Custom quote", "Sports", "/images/product-apparel-t-shirts.png"],
 ] as const;
 
 export const printMethods = [

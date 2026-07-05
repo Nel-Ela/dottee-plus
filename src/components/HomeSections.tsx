@@ -186,7 +186,6 @@ export function BestSellersSection() {
           <div className="grid gap-3">
             {bestSellers.map(([name, text, price], index) => {
               const fixedPrice = hasFixedUnitPrice(price);
-              const cartMessage = encodeURIComponent(`Hi Dottee Plus, I want to buy the standard ${name}. Please share checkout details.`);
 
               return (
                 <article key={name} className="kit-row">
@@ -196,15 +195,20 @@ export function BestSellersSection() {
                     <small>{text}</small>
                   </span>
                   <div className="kit-row-action">
-                    {fixedPrice ? <QuantityPrice price={price} unit="kit" compact /> : <em>{price}</em>}
                     {fixedPrice ? (
-                      <a href={`https://wa.me/${contact.whatsapp}?text=${cartMessage}`} className="btn btn-primary min-h-10 px-4 py-2 text-sm">
-                        Add to Cart
-                      </a>
+                      <QuantityPrice
+                        price={price}
+                        unit="kit"
+                        compact
+                        cart={{ name, whatsapp: contact.whatsapp, ctaClassName: "btn btn-primary min-h-10 px-4 py-2 text-sm" }}
+                      />
                     ) : (
-                      <Link href="/quote" className="btn btn-primary min-h-10 px-4 py-2 text-sm">
-                        Request Custom Quote
-                      </Link>
+                      <>
+                        <em>{price}</em>
+                        <Link href="/quote" className="btn btn-primary min-h-10 px-4 py-2 text-sm">
+                          Request Custom Quote
+                        </Link>
+                      </>
                     )}
                   </div>
                 </article>
@@ -267,7 +271,6 @@ export function ReadyStockSection() {
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {readyStock.slice(0, 3).map(([name, text, price, label, image]) => {
             const unit = price.toLowerCase().includes("/tee") ? "tee" : "pc";
-            const cartMessage = encodeURIComponent(`Hi Dottee Plus, I want to buy standard ${name}. Please share checkout details.`);
 
             return (
             <article key={name} className="card group overflow-hidden">
@@ -287,10 +290,7 @@ export function ReadyStockSection() {
                 <h3 className="font-display text-xl font-bold">{name}</h3>
                 <p className="mt-2 min-h-12 text-sm leading-6 text-[var(--gray-500)]">{text}</p>
                 <div className="mt-4 grid gap-4">
-                  <QuantityPrice price={price} unit={unit} compact />
-                  <a href={`https://wa.me/${contact.whatsapp}?text=${cartMessage}`} className="btn btn-primary min-h-11 px-4 py-2 text-sm">
-                    Add to Cart
-                  </a>
+                  <QuantityPrice price={price} unit={unit} compact cart={{ name, whatsapp: contact.whatsapp }} />
                 </div>
               </div>
             </article>

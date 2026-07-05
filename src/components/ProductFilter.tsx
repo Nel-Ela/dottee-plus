@@ -142,7 +142,6 @@ export function ProductCatalogue() {
                 {group.items.map(([name, spec, price, label, image], index) => {
                   const fixedPrice = hasFixedUnitPrice(price);
                   const unit = price.toLowerCase().includes("/kit") ? "kit" : price.toLowerCase().includes("/tee") ? "tee" : "pc";
-                  const cartMessage = encodeURIComponent(`Hi Dottee Plus, I want to buy standard ${name}. Please share checkout details.`);
 
                   return (
                     <article key={name} className="card group overflow-hidden">
@@ -157,9 +156,6 @@ export function ProductCatalogue() {
                             style={{ objectPosition: cropPositions[index % cropPositions.length] }}
                           />
                           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,26,36,0)_42%,rgba(26,26,36,0.62)_100%)]" />
-                          {index === 0 ? (
-                            <span className="absolute right-4 top-4 rounded-full bg-[var(--orange)] px-3 py-1 text-xs font-bold text-white">POPULAR</span>
-                          ) : null}
                           <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3 py-2 text-xs font-black text-[var(--charcoal)] shadow-sm">
                             {label}
                           </span>
@@ -170,15 +166,15 @@ export function ProductCatalogue() {
                         <h3 className="font-display mt-2 text-lg font-bold">{name}</h3>
                         <p className="mt-2 min-h-12 text-sm leading-6 text-[var(--gray-500)]">{spec}</p>
                         <div className="mt-5 grid gap-4 border-t border-[var(--gray-100)] pt-4 text-sm">
-                          {fixedPrice ? <QuantityPrice price={price} unit={unit} compact /> : <strong className="font-display text-[var(--orange)]">{price}</strong>}
                           {fixedPrice ? (
-                            <a href={`https://wa.me/${contact.whatsapp}?text=${cartMessage}`} className="btn btn-primary min-h-11 px-4 py-2 text-sm">
-                              Add to Cart
-                            </a>
+                            <QuantityPrice price={price} unit={unit} compact cart={{ name, whatsapp: contact.whatsapp }} />
                           ) : (
-                            <Link href="/quote" className="btn btn-primary min-h-11 px-4 py-2 text-sm">
-                              Request Custom Quote
-                            </Link>
+                            <>
+                              <strong className="font-display text-[var(--orange)]">{price}</strong>
+                              <Link href="/quote" className="btn btn-primary min-h-11 px-4 py-2 text-sm">
+                                Request Custom Quote
+                              </Link>
+                            </>
                           )}
                         </div>
                       </div>
