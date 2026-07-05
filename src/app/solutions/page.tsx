@@ -42,7 +42,7 @@ export default function SolutionsPage() {
                   View Products
                 </Link>
                 <Link href="/quote" className="btn btn-ghost-dark px-8">
-                  Build Quote
+                  Request Custom Quote
                 </Link>
               </div>
             </div>

@@ -115,7 +115,7 @@ export default function AboutPage() {
                 Dottee Plus captures the product mix, logo files, quantity, budget, deadline, and delivery address before production begins. {contact.serviceArea}.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/quote" className="btn btn-primary px-8">Place an Order</Link>
+                <Link href="/quote" className="btn btn-primary px-8">Request Custom Quote</Link>
                 <a href={`https://wa.me/${contact.whatsapp}`} className="btn btn-whatsapp px-8">WhatsApp</a>
               </div>
             </div>
@@ -138,7 +138,7 @@ export default function AboutPage() {
               Your brand story starts with <span className="text-[var(--orange)]">one order.</span>
             </h2>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <Link href="/quote" className="btn btn-primary px-8">Get Free Quote</Link>
+              <Link href="/quote" className="btn btn-primary px-8">Request Custom Quote</Link>
               <Link href="/products" className="btn btn-ghost-dark px-8">View Products</Link>
             </div>
           </div>

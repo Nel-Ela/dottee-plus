@@ -35,7 +35,7 @@ export function Navbar() {
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
           <Link href="/quote" className="btn btn-primary min-h-10 px-4 py-2 text-sm">
-            Get Quote
+            Request Custom Quote
           </Link>
         </div>
         <button
@@ -58,7 +58,7 @@ export function Navbar() {
               </Link>
             ))}
             <Link href="/quote" className="btn btn-primary mt-2" onClick={() => setOpen(false)}>
-              Get Quote
+              Request Custom Quote
             </Link>
           </nav>
         </div>

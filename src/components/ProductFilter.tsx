@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { productGroups } from "@/lib/data";
+import { contact, productGroups } from "@/lib/data";
+import { hasFixedUnitPrice } from "@/lib/pricing";
+import { QuantityPrice } from "@/components/QuantityPrice";
 
 const filters = [
   ["all", "All Products"],
@@ -119,7 +121,7 @@ export function ProductCatalogue() {
               </p>
             </div>
             <Link href="/quote" className="btn btn-primary px-8">
-              Place Bulk Order
+              Request Custom Quote
             </Link>
           </div>
           <WelcomeFeature />
@@ -133,40 +135,56 @@ export function ProductCatalogue() {
                   <h2 className="font-display mt-2 text-3xl font-extrabold md:text-4xl">{group.title}</h2>
                 </div>
                 <Link href="/quote" className="font-bold" style={{ color: group.color }}>
-                  Request bulk quote -&gt;
+                  Request Custom Quote -&gt;
                 </Link>
               </div>
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {group.items.map(([name, spec, price, label, image], index) => (
-                  <Link key={name} href="/quote" className="card group overflow-hidden">
-                    <div className="relative h-48 overflow-hidden bg-[var(--gray-50)]">
-                      <Image
-                        src={image ?? group.image}
-                        alt={`${name} for ${group.title}`}
-                        fill
-                        sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover transition duration-500 group-hover:scale-105"
-                        style={{ objectPosition: cropPositions[index % cropPositions.length] }}
-                      />
-                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,26,36,0)_42%,rgba(26,26,36,0.62)_100%)]" />
-                      {index === 0 ? (
-                        <span className="absolute right-4 top-4 rounded-full bg-[var(--orange)] px-3 py-1 text-xs font-bold text-white">POPULAR</span>
-                      ) : null}
-                      <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3 py-2 text-xs font-black text-[var(--charcoal)] shadow-sm">
-                        {label}
-                      </span>
-                    </div>
-                    <div className="p-5">
-                      <span className="font-mono-brand text-[11px] uppercase tracking-[0.12em] text-[var(--teal-dark)]">{label}</span>
-                      <h3 className="font-display mt-2 text-lg font-bold">{name}</h3>
-                      <p className="mt-2 min-h-12 text-sm leading-6 text-[var(--gray-500)]">{spec}</p>
-                      <div className="mt-5 flex items-center justify-between border-t border-[var(--gray-100)] pt-4 text-sm">
-                        <strong className="font-display text-[var(--orange)]">{price}</strong>
-                        <span className="font-semibold text-[var(--gray-500)]">Add to quote</span>
+                {group.items.map(([name, spec, price, label, image], index) => {
+                  const fixedPrice = hasFixedUnitPrice(price);
+                  const unit = price.toLowerCase().includes("/kit") ? "kit" : price.toLowerCase().includes("/tee") ? "tee" : "pc";
+                  const cartMessage = encodeURIComponent(`Hi Dottee Plus, I want to buy standard ${name}. Please share checkout details.`);
+
+                  return (
+                    <article key={name} className="card group overflow-hidden">
+                      <Link href={fixedPrice ? `/products#${group.key}` : "/quote"} className="block">
+                        <div className="relative h-48 overflow-hidden bg-[var(--gray-50)]">
+                          <Image
+                            src={image ?? group.image}
+                            alt={`${name} for ${group.title}`}
+                            fill
+                            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                            className="object-cover transition duration-500 group-hover:scale-105"
+                            style={{ objectPosition: cropPositions[index % cropPositions.length] }}
+                          />
+                          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,26,36,0)_42%,rgba(26,26,36,0.62)_100%)]" />
+                          {index === 0 ? (
+                            <span className="absolute right-4 top-4 rounded-full bg-[var(--orange)] px-3 py-1 text-xs font-bold text-white">POPULAR</span>
+                          ) : null}
+                          <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3 py-2 text-xs font-black text-[var(--charcoal)] shadow-sm">
+                            {label}
+                          </span>
+                        </div>
+                      </Link>
+                      <div className="p-5">
+                        <span className="font-mono-brand text-[11px] uppercase tracking-[0.12em] text-[var(--teal-dark)]">{label}</span>
+                        <h3 className="font-display mt-2 text-lg font-bold">{name}</h3>
+                        <p className="mt-2 min-h-12 text-sm leading-6 text-[var(--gray-500)]">{spec}</p>
+                        <div className="mt-5 grid gap-4 border-t border-[var(--gray-100)] pt-4 text-sm">
+                          {fixedPrice ? <QuantityPrice price={price} unit={unit} compact /> : <strong className="font-display text-[var(--orange)]">{price}</strong>}
+                          {fixedPrice ? (
+                            <a href={`https://wa.me/${contact.whatsapp}?text=${cartMessage}`} className="btn btn-primary min-h-11 px-4 py-2 text-sm">
+                              Add to Cart
+                            </a>
+                          ) : (
+                            <Link href="/quote" className="btn btn-primary min-h-11 px-4 py-2 text-sm">
+                              Request Custom Quote
+                            </Link>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                ))}
+                    </article>
+                  );
+                })}
               </div>
             </section>
           ))}
@@ -194,7 +212,9 @@ function WelcomeFeature() {
             </span>
           ))}
         </div>
-        <div className="font-display mt-8 text-3xl font-extrabold text-[var(--orange)]">From Rs. 999/kit</div>
+        <div className="mt-8">
+          <QuantityPrice price="From Rs. 999/kit" unit="kit" />
+        </div>
       </div>
       <div className="relative min-h-72 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06]">
         <Image

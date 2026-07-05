@@ -13,12 +13,12 @@ export function Footer() {
           </p>
         </div>
         <FooterGroup title="Solutions" links={["Welcome kits", "Corporate apparel", "Event merchandise", "Premium gifts"]} />
-        <FooterGroup title="Company" links={["About", "Products", "Get Quote", "Process"]} />
+        <FooterGroup title="Company" links={["About", "Products", "Request Custom Quote", "Process"]} />
         <div>
           <h3 className="font-display mb-4 text-lg font-bold">Contact</h3>
           <div className="grid gap-3 text-sm text-white/45">
             <a href={`mailto:${contact.email}`}>{contact.email}</a>
-            <Link href="/quote">Request a bulk quote</Link>
+            <Link href="/quote">Request Custom Quote</Link>
             <a href={`https://wa.me/${contact.whatsapp}`}>WhatsApp requirement</a>
             <span>{contact.serviceArea}</span>
           </div>
@@ -45,7 +45,7 @@ function FooterGroup({ title, links }: { title: string; links: string[] }) {
                 ? "/about"
                 : link === "Products"
                   ? "/products"
-                  : link === "Get Quote"
+                  : link === "Request Custom Quote"
                     ? "/quote"
                     : title === "Solutions"
                       ? "/solutions"

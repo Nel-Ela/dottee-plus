@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { bestSellers, buyerQuestions, categories, orderSteps, printMethods, processSteps, proofPoints, readyStock, useCases } from "@/lib/data";
+import { bestSellers, buyerQuestions, categories, contact, orderSteps, printMethods, processSteps, proofPoints, readyStock, useCases } from "@/lib/data";
+import { hasFixedUnitPrice } from "@/lib/pricing";
+import { QuantityPrice } from "@/components/QuantityPrice";
 import { SectionHeading } from "@/components/ui/BrandLogo";
 
 const tone: Record<string, string> = {
@@ -41,10 +43,10 @@ export function HeroSection() {
           </p>
           <div className="hero-actions">
             <Link href="/quote" className="btn btn-primary px-8">
-              Get Bulk Quote
+              Request Custom Quote
             </Link>
-            <Link href="/solutions" className="btn btn-ghost-dark px-8">
-              Explore Corporate Solutions
+            <Link href="/products/#stockroom" className="btn btn-ghost-dark px-8">
+              Buy Standard Kits
             </Link>
           </div>
         </div>
@@ -182,19 +184,35 @@ export function BestSellersSection() {
             text="Give HR and founders a simple path from joining-kit idea to approved mockups, sourcing, packaging, and multi-location delivery."
           />
           <div className="grid gap-3">
-            {bestSellers.map(([name, text, price], index) => (
-              <Link key={name} href="/quote" className="kit-row">
-                <span className="kit-row-number">0{index + 1}</span>
-                <span>
-                  <strong>{name}</strong>
-                  <small>{text}</small>
-                </span>
-                <em>{price}</em>
-              </Link>
-            ))}
+            {bestSellers.map(([name, text, price], index) => {
+              const fixedPrice = hasFixedUnitPrice(price);
+              const cartMessage = encodeURIComponent(`Hi Dottee Plus, I want to buy the standard ${name}. Please share checkout details.`);
+
+              return (
+                <article key={name} className="kit-row">
+                  <span className="kit-row-number">0{index + 1}</span>
+                  <span>
+                    <strong>{name}</strong>
+                    <small>{text}</small>
+                  </span>
+                  <div className="kit-row-action">
+                    {fixedPrice ? <QuantityPrice price={price} unit="kit" compact /> : <em>{price}</em>}
+                    {fixedPrice ? (
+                      <a href={`https://wa.me/${contact.whatsapp}?text=${cartMessage}`} className="btn btn-primary min-h-10 px-4 py-2 text-sm">
+                        Add to Cart
+                      </a>
+                    ) : (
+                      <Link href="/quote" className="btn btn-primary min-h-10 px-4 py-2 text-sm">
+                        Request Custom Quote
+                      </Link>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
           </div>
           <Link href="/quote" className="btn btn-primary mt-6 px-8">
-            Build Welcome Kit
+            Request Custom Quote
           </Link>
         </div>
       </div>
@@ -224,10 +242,10 @@ export function ReadyStockSection() {
             </div>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a href="/products/#stockroom" className="btn btn-primary px-8">
-                View Stockroom
+                Buy Standard Kits
               </a>
               <Link href="/quote" className="btn border border-[var(--gray-100)] bg-white px-8 text-[var(--charcoal)] shadow-sm">
-                Ask for Rs. 399+ Front/Back Tees
+                Request Custom Quote
               </Link>
             </div>
           </div>
@@ -247,8 +265,12 @@ export function ReadyStockSection() {
           </div>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {readyStock.slice(0, 3).map(([name, text, price, label, image]) => (
-            <Link key={name} href="/quote" className="card group overflow-hidden">
+          {readyStock.slice(0, 3).map(([name, text, price, label, image]) => {
+            const unit = price.toLowerCase().includes("/tee") ? "tee" : "pc";
+            const cartMessage = encodeURIComponent(`Hi Dottee Plus, I want to buy standard ${name}. Please share checkout details.`);
+
+            return (
+            <article key={name} className="card group overflow-hidden">
               <div className="relative h-56 overflow-hidden bg-[var(--gray-50)]">
                 <Image
                   src={image}
@@ -264,10 +286,16 @@ export function ReadyStockSection() {
               <div className="p-5">
                 <h3 className="font-display text-xl font-bold">{name}</h3>
                 <p className="mt-2 min-h-12 text-sm leading-6 text-[var(--gray-500)]">{text}</p>
-                <strong className="font-display mt-4 block text-[var(--orange)]">{price}</strong>
+                <div className="mt-4 grid gap-4">
+                  <QuantityPrice price={price} unit={unit} compact />
+                  <a href={`https://wa.me/${contact.whatsapp}?text=${cartMessage}`} className="btn btn-primary min-h-11 px-4 py-2 text-sm">
+                    Add to Cart
+                  </a>
+                </div>
               </div>
-            </Link>
-          ))}
+            </article>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -396,7 +424,7 @@ export function PrintingMethodsSection() {
               <span className="label text-[var(--teal-dark)]">Method</span>
               <h3 className="font-display text-xl font-bold">{name}</h3>
               <p className="mt-3 text-sm leading-7 text-[var(--gray-500)]">{desc}</p>
-              <span className="mt-5 inline-flex text-sm font-bold text-[var(--orange)]">Discuss method -&gt;</span>
+              <span className="mt-5 inline-flex text-sm font-bold text-[var(--orange)]">Request Custom Quote -&gt;</span>
             </Link>
           ))}
         </div>
@@ -440,7 +468,7 @@ export function OrderFlowSection() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link href="/quote" className="btn btn-primary px-8">
-              Start Quote
+              Request Custom Quote
             </Link>
             <Link href="/products" className="btn border border-[var(--gray-100)] bg-white px-8 text-[var(--charcoal)] shadow-sm">
               Browse Products
@@ -465,7 +493,7 @@ export function OrderFlowSection() {
               <h3 className="font-display mt-3 text-xl font-bold">{title}</h3>
               <p className="mt-3 text-sm leading-7 text-[var(--gray-500)]">{text}</p>
               <span className="mt-5 inline-flex text-sm font-bold text-[var(--orange)]">
-                {index === 0 ? "View products" : "Open quote form"} -&gt;
+                {index === 0 ? "Browse Products" : "Request Custom Quote"} -&gt;
               </span>
             </Link>
           ))}
@@ -521,7 +549,7 @@ export function EventMerchandiseSection() {
             text="Plan attendee kits, lanyards, badges, booth giveaways, staff apparel, totes, caps, and branded packaging in one workflow."
           />
           <Link href="/quote" className="btn btn-primary mt-2 px-8">
-            Plan Event Merch
+            Request Custom Quote
           </Link>
         </div>
         <div className="grid gap-4">
@@ -566,7 +594,7 @@ export function QuoteCTASection() {
         </h2>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Link href="/quote" className="btn btn-primary px-8">
-            Get Bulk Quote
+            Request Custom Quote
           </Link>
           <Link href="/products" className="btn btn-ghost-dark px-8">
             View Products
