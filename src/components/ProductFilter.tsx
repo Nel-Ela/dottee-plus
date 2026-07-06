@@ -157,7 +157,7 @@ export function ProductCatalogue() {
                           )
                         }
                       >
-                        <div className={`relative overflow-hidden bg-[var(--gray-50)] ${group.key === "stockroom" ? "aspect-square" : "h-48"}`}>
+                        <div className={`relative overflow-hidden bg-[var(--gray-50)] ${group.key === "stockroom" ? "aspect-square" : "aspect-[4/3]"}`}>
                           <Image
                             src={image ?? group.image}
                             alt={`${name} for ${group.title}`}
