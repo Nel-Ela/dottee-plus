@@ -21,15 +21,28 @@ const industryBundles: Record<string, string[]> = {
   Events: ["Lanyards", "Badges", "T-shirts", "Tote bags", "Booth merchandise", "Gift kits"],
 };
 
+const heroStripItems = [
+  "Welcome kits",
+  "Lanyards",
+  "Corporate gifts",
+  "Mugs",
+  "Apparel",
+  "Bottles",
+  "Event merch",
+  "ID cards",
+  "Gift boxes",
+  "Office essentials",
+  "Notebooks",
+  "Caps",
+];
+
 export function HeroSection() {
   return (
     <section id="home-hero" className="home-panel hero-impact dot-grid relative overflow-hidden bg-[var(--charcoal)] text-white">
       <div className="idea-strip" aria-hidden="true">
-        <span>WELCOME KITS</span>
-        <span>CORPORATE GIFTS</span>
-        <span>APPAREL</span>
-        <span>EVENT MERCH</span>
-        <span>OFFICE ESSENTIALS</span>
+        {[...heroStripItems, ...heroStripItems].map((item, index) => (
+          <span key={`${item}-${index}`}>{item}</span>
+        ))}
       </div>
       <div className="container-page hero-impact-grid">
         <div className="hero-impact-copy">
