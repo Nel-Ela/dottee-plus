@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Mono, DM_Sans, Syne } from "next/font/google";
+import { QuoteToastHost } from "@/components/QuoteToast";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -46,7 +47,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSans.variable} ${syne.variable} ${dmMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <QuoteToastHost />
+      </body>
     </html>
   );
 }

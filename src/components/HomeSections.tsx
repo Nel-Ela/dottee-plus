@@ -225,7 +225,7 @@ export function BestSellersSection() {
 }
 
 export function ReadyStockSection() {
-  const quickTags = ["Front/back tees", "Tamilanda", "Murugan", "Fan editions", "Trip tees", "Custom names"];
+  const quickTags = ["Round neck tees", "Polos", "Hoodies", "தமிழன்டா", "Trip crews", "Sports jerseys"];
 
   return (
     <section id="home-stockroom" className="home-panel stockroom-section section-pad bg-white">
@@ -234,8 +234,8 @@ export function ReadyStockSection() {
           <div>
             <SectionHeading
               label="Stockroom"
-              title="Hyper-real front/back T-shirt samples customers can picture instantly."
-              text="Show printed examples that feel already produced: Tamilanda typography, Murugan Vel artwork, cinema fan-edition graphics, trip tees, family names, and custom back-print designs for fast orders."
+              title="Ready apparel samples customers can choose and customize fast."
+              text="A practical custom-wear shelf with real front/back tee, polo, hoodie, trip, devotional, and sports jersey mockups. Pick a style, select quantity, and request artwork proof before print."
             />
             <div className="mt-6 flex flex-wrap gap-2">
               {quickTags.map((tag) => (
@@ -255,8 +255,8 @@ export function ReadyStockSection() {
           </div>
           <div className="stockroom-hero">
             <Image
-              src="/images/stockroom-tamilanda-front-back.png"
-              alt="Hyper-realistic front and back Tamilanda custom T-shirt sample"
+              src="/images/stockroom-tamilanda-group.png"
+              alt="Ready stockroom apparel samples with T-shirt, polo, and hoodie front and back views"
               fill
               sizes="(min-width: 1024px) 54vw, 100vw"
               className="object-cover"
@@ -264,7 +264,7 @@ export function ReadyStockSection() {
             <div className="stockroom-price-card">
               <span>Ready drops</span>
               <strong>Rs. 399+</strong>
-              <small>Front/back T-shirt samples and custom artwork</small>
+              <small>T-shirts, polos, hoodies, jerseys, and custom artwork</small>
             </div>
           </div>
         </div>
@@ -274,13 +274,13 @@ export function ReadyStockSection() {
 
             return (
             <article key={name} className="card group overflow-hidden">
-              <div className="relative h-56 overflow-hidden bg-[var(--gray-50)]">
+              <div className="relative aspect-[4/3] overflow-hidden bg-[var(--gray-50)]">
                 <Image
                   src={image}
                   alt={`${name} ready stock product sample`}
                   fill
                   sizes="(min-width: 768px) 33vw, 100vw"
-                  className="object-cover transition duration-500 group-hover:scale-105"
+                  className="object-cover transition duration-500 group-hover:scale-[1.03]"
                 />
                 <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-2 text-xs font-black text-[var(--charcoal)] shadow-sm">
                   {label}

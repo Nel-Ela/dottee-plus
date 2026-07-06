@@ -6,6 +6,7 @@ import Link from "next/link";
 import { contact, productGroups } from "@/lib/data";
 import { hasFixedUnitPrice } from "@/lib/pricing";
 import { QuantityPrice } from "@/components/QuantityPrice";
+import { showQuoteToast } from "@/components/QuoteToast";
 
 const filters = [
   ["all", "All Products"],
@@ -120,7 +121,7 @@ export function ProductCatalogue() {
                 Pick products, open the quote form, share quantity, artwork, deadline, and delivery address. Dottee Plus sends a quote and artwork proof before production.
               </p>
             </div>
-            <Link href="/quote" className="btn btn-primary px-8">
+            <Link href="/quote" className="btn btn-primary px-8" onClick={() => showQuoteToast("Custom quote opened. Share quantity, artwork, deadline, and delivery city.")}>
               Request Custom Quote
             </Link>
           </div>
@@ -134,7 +135,7 @@ export function ProductCatalogue() {
                   </span>
                   <h2 className="font-display mt-2 text-3xl font-extrabold md:text-4xl">{group.title}</h2>
                 </div>
-                <Link href="/quote" className="font-bold" style={{ color: group.color }}>
+                <Link href="/quote" className="font-bold" style={{ color: group.color }} onClick={() => showQuoteToast(`${group.title} quote started. Add quantity, sizes, and artwork details.`)}>
                   Request Custom Quote -&gt;
                 </Link>
               </div>
@@ -145,14 +146,24 @@ export function ProductCatalogue() {
 
                   return (
                     <article key={name} className="card group overflow-hidden">
-                      <Link href={fixedPrice ? `/products#${group.key}` : "/quote"} className="block">
-                        <div className="relative h-48 overflow-hidden bg-[var(--gray-50)]">
+                      <Link
+                        href={fixedPrice ? `/products#${group.key}` : "/quote"}
+                        className="block"
+                        onClick={() =>
+                          showQuoteToast(
+                            fixedPrice
+                              ? `${name} selected. Choose quantity below or add it to WhatsApp.`
+                              : `${name} quote started. Add quantity, sizes, and print placement.`,
+                          )
+                        }
+                      >
+                        <div className={`relative overflow-hidden bg-[var(--gray-50)] ${group.key === "stockroom" ? "aspect-square" : "h-48"}`}>
                           <Image
                             src={image ?? group.image}
                             alt={`${name} for ${group.title}`}
                             fill
                             sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                            className="object-cover transition duration-500 group-hover:scale-105"
+                            className="object-cover transition duration-500 group-hover:scale-[1.03]"
                             style={{ objectPosition: cropPositions[index % cropPositions.length] }}
                           />
                           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,26,36,0)_42%,rgba(26,26,36,0.62)_100%)]" />
@@ -171,7 +182,7 @@ export function ProductCatalogue() {
                           ) : (
                             <>
                               <strong className="font-display text-[var(--orange)]">{price}</strong>
-                              <Link href="/quote" className="btn btn-primary min-h-11 px-4 py-2 text-sm">
+                              <Link href="/quote" className="btn btn-primary min-h-11 px-4 py-2 text-sm" onClick={() => showQuoteToast(`${name} quote started. Add quantity, sizes, and print placement.`)}>
                                 Request Custom Quote
                               </Link>
                             </>

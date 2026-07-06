@@ -17,7 +17,7 @@ export const navLinks = [
 export const categories = [
   ["Employee Welcome Kits", "Joining kits with apparel, bottles, notebooks, pens, ID accessories, and gift-ready packaging.", "Onboarding", "orange", "/images/dottee-2026-welcome-kit.png"],
   ["Corporate Apparel", "Polos, T-shirts, hoodies, jackets, and uniforms customized for teams and departments.", "Teams", "teal", "/images/dottee-2026-apparel-program.png"],
-  ["Stockroom", "Hyper-real front/back T-shirt samples for Tamil, Murugan, fan-edition, trip, and custom designs.", "Ready stock", "purple", "/images/stockroom-tamilanda-front-back.png"],
+  ["Stockroom", "Ready custom apparel drops with real front/back samples, starting prices, and fast quote actions.", "Ready stock", "purple", "/images/stockroom-tamilanda-group.png"],
   ["Event Merchandise", "Caps, badges, lanyards, tote bags, tees, and promotional products for events and conferences.", "Events", "purple", "/images/dottee-event-merch-category.png"],
   ["Office Essentials", "Mugs, bottles, notebooks, mouse pads, calendars, desk kits, and daily-use branded items.", "Daily use", "orange", "/images/dottee-2026-solution-collage.png"],
   ["Premium Gift Boxes", "Curated gift sets for festivals, milestones, clients, leadership teams, and special campaigns.", "Gifting", "teal", "/images/dottee-welcome-kit-category.png"],
@@ -45,12 +45,13 @@ export const bestSellers = [
 ];
 
 export const readyStock = [
-  ["Tamilanda Tee", "Front chest mark and bold back Tamil print with realistic cotton and ink texture", "T-shirts from Rs. 399+", "Tamil", "/images/stockroom-tamilanda-front-back.png"],
-  ["Murugan Vel Tee", "Front Vel icon with a large back print using peacock, temple, and devotional artwork", "From Rs. 399/tee", "Murugan", "/images/stockroom-murugan-front-back.png"],
-  ["Fan Edition Tee", "Cinema-inspired front and back fan artwork for trending local drops", "From Rs. 449/tee", "Fan style", "/images/stockroom-jailer-style-front-back.png"],
-  ["Custom Trip Tee", "Front pocket trip mark and back design with group names, route art, and icons", "From Rs. 399/tee", "Custom", "/images/stockroom-custom-trip-front-back.png"],
-  ["Family Sets", "Front trip mark and back crew list with names, route signposts, and travel icons — built for family reunions and group getaways", "From Rs. 399/tee", "Family", "/images/stockroom-custom-trip-front-back.png"],
-  ["Cricket Jersey Art", "Name, number, cricket, tournament, and team-color artwork designed to order for your squad — share your team colors for a mockup", "Custom quote", "Sports", "/images/product-apparel-t-shirts.png"],
+  ["தமிழன்டா Tee", "Black round-neck front/back தமிழன்டா artwork with chest print and bold back graphic", "From Rs. 399/tee", "Tamil", "/images/stockroom-tamilanda-single.png"],
+  ["தமிழன்டா Range", "White tee, black polo, and hoodie samples to show customers multiple stocked styles", "From Rs. 399/tee", "Range", "/images/stockroom-tamilanda-group.png"],
+  ["Murugan Vel Tee", "Black devotional-style front/back tee with Murugan chest art, Vel back print, and peacock details", "From Rs. 449/tee", "Murugan", "/images/stockroom-murugan-single.png"],
+  ["Trip Crew Tee", "White front/back trip tee with route artwork, crew names, and family or friends group styling", "From Rs. 399/tee", "Trip", "/images/stockroom-trip-crew-single.png"],
+  ["Corporate Quote Polo", "Office-ready polo with chest logo and back quote print for teams, events, and campaigns", "From Rs. 349/pc", "Corporate", "/images/stockroom-corporate-quote-polo.png"],
+  ["Navy Polo Tee", "Premium navy polo with front logo and subtle dotted back pattern for daily staff wear", "From Rs. 349/pc", "Polo", "/images/stockroom-polo-single.png"],
+  ["Cricket Jersey", "Dry-fit sports jersey with front logo, back number, team colors, and tournament styling", "From Rs. 499/jersey", "Sports", "/images/stockroom-sports-jersey-single.png"],
 ] as const;
 
 export const printMethods = [
@@ -102,8 +103,8 @@ export const productGroups = [
     number: "03",
     title: "Stockroom",
     color: "var(--orange)",
-    image: "/images/stockroom-tamilanda-front-back.png",
-    imageAlt: "Hyper-realistic front and back Tamilanda T-shirt sample mockup",
+    image: "/images/stockroom-tamilanda-group.png",
+    imageAlt: "Ready stockroom range with Tamilanda T-shirt, polo, and hoodie front and back samples",
     items: readyStock,
   },
   {

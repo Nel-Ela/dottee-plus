@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { getBaseUnitPrice } from "@/lib/pricing";
+import { showQuoteToast } from "@/components/QuoteToast";
 
 const quantityTiers = [
   { label: "10", value: 10, multiplier: 1 },
@@ -48,13 +49,14 @@ export function QuantityPrice({
 
   const ctaClassName = cart?.ctaClassName ?? "btn btn-primary min-h-11 px-4 py-2 text-sm";
   const ctaLabel = cart?.ctaLabel ?? "Add to Cart";
+  const toastName = cart?.name ?? "This item";
 
   if (!basePrice) {
     return (
       <>
         <strong className="font-display text-[var(--orange)]">{price}</strong>
         {cartHref ? (
-          <a href={cartHref} className={ctaClassName}>
+          <a href={cartHref} target="_blank" rel="noreferrer" className={ctaClassName} onClick={() => showQuoteToast(`${toastName} added. WhatsApp will open with quantity and price details.`)}>
             {ctaLabel}
           </a>
         ) : null}
@@ -86,7 +88,7 @@ export function QuantityPrice({
       </div>
       <p className="text-xs font-semibold leading-5 text-[var(--gray-500)]">Prices drop at higher quantities.</p>
       {cartHref ? (
-        <a href={cartHref} className={ctaClassName}>
+        <a href={cartHref} target="_blank" rel="noreferrer" className={ctaClassName} onClick={() => showQuoteToast(`${toastName} added. WhatsApp will open with quantity and price details.`)}>
           {ctaLabel}
         </a>
       ) : null}
